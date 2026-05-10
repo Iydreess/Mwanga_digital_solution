@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Projects | Mwanga Digital Solutions</title>
+<meta name="description" content="Explore our portfolio of successful projects — websites, mobile apps, systems, and brand identities delivered for clients across Kenya and beyond."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/global.css"/>
+<style>
+
+/* ========================================
+   HERO
+   ======================================== */
+#projects-hero{
+  min-height:56vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  padding:140px 5% 80px;
+  position:relative;overflow:hidden;
+  background:var(--bg);
+}
+.ph-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%,rgba(255,208,0,0.09) 0%,transparent 65%),
+    linear-gradient(to bottom,rgba(5,5,5,0) 0%,rgba(5,5,5,1) 100%);
+  pointer-events:none;
+}
+.ph-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 0%,black 0%,transparent 100%);
+  pointer-events:none;
+}
+/* Floating stat pills in hero */
+.ph-pill{
+  position:absolute;
+  background:var(--card);border:1px solid var(--border);border-radius:100px;
+  padding:10px 20px;font-size:0.8rem;font-weight:600;
+  display:flex;align-items:center;gap:8px;
+  backdrop-filter:blur(12px);box-shadow:0 8px 32px rgba(0,0,0,0.4);
+  animation:floatPill1 5s ease-in-out infinite;
+}
+.ph-pill-2{animation:floatPill2 7s ease-in-out infinite}
+.ph-pill-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:pulse 2s infinite}
+.ph-pill-1{top:22%;left:8%}
+.ph-pill-2{top:30%;right:8%}
+@media(max-width:768px){.ph-pill{display:none}}
+
+.ph-inner{position:relative;z-index:2;max-width:680px}
+.ph-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,208,0,0.1);border:1px solid rgba(255,208,0,0.3);
+  padding:6px 18px;border-radius:100px;
+  font-size:0.75rem;font-weight:700;color:var(--gold);
+  letter-spacing:0.12em;text-transform:uppercase;margin-bottom:24px;
+}
+.ph-tag::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+.ph-h1{
+  font-family:var(--font-display);
+  font-size:clamp(3rem,7vw,5.5rem);
+  font-weight:800;line-height:1.0;
+  letter-spacing:-0.03em;
+}
+.ph-h1 span{color:var(--gold)}
+.ph-sub{
+  color:var(--grey);font-size:0.98rem;line-height:1.8;
+  font-weight:300;margin-top:20px;max-width:520px;
+  margin-left:auto;margin-right:auto;
+}
+
+/* ========================================
+   STATS MINI
+   ======================================== */
+#proj-stats{
+  padding:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:var(--bg2);
+}
+.proj-stats-row{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;
+}
+.ps-item{
+  padding:36px 24px;text-align:center;
+  border-right:1px solid var(--border);
+  transition:background 0.3s;
+}
+.ps-item:last-child{border-right:none}
+.ps-item:hover{background:rgba(255,208,0,0.02)}
+.ps-num{
+  font-family:var(--font-display);font-size:2.2rem;font-weight:800;
+  color:var(--gold);line-height:1;margin-bottom:6px;
+}
+.ps-label{font-size:0.8rem;color:var(--grey);text-transform:uppercase;letter-spacing:0.08em;font-weight:500}
+
+/* ========================================
+   FILTER TABS
+   ======================================== */
+#portfolio{
+  padding:80px 5% 100px;
+  background:var(--bg);
+}
+.port-wrap{max-width:1400px;margin:0 auto}
+.filter-tabs{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:56px;
+}
+.filter-tab{
+  padding:9px 22px;border-radius:100px;
+  border:1px solid var(--border);
+  background:transparent;color:var(--grey);
+  font-family:var(--font-body);font-size:0.84rem;font-weight:600;
+  cursor:pointer;transition:all 0.25s;
+  letter-spacing:0.02em;
+}
+.filter-tab:hover{border-color:rgba(255,208,0,0.3);color:var(--white)}
+.filter-tab.active{background:var(--gold);border-color:var(--gold);color:#000}
+
+/* ========================================
+   FEATURED PROJECT
+   ======================================== */
+.project-featured{
+  background:var(--card);border:1px solid var(--border);border-radius:28px;
+  display:grid;grid-template-columns:1.1fr 1fr;
+  overflow:hidden;margin-bottom:32px;
+  transition:border-color 0.3s,box-shadow 0.4s;
+}
+.project-featured:hover{
+  border-color:rgba(255,208,0,0.2);
+  box-shadow:0 32px 80px rgba(0,0,0,0.5);
+}
+.pf-visual{
+  position:relative;overflow:hidden;min-height:380px;
+  background:linear-gradient(135deg,#0d0d0d,#181400);
+  display:flex;align-items:center;justify-content:center;
+}
+.pf-visual::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 40% 50%,rgba(255,208,0,0.12) 0%,transparent 60%);
+}
+.pf-mock{
+  width:80%;max-width:340px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;padding:20px;position:relative;z-index:1;
+  box-shadow:0 24px 64px rgba(0,0,0,0.5);
+}
+.pf-mock-bar{display:flex;gap:6px;margin-bottom:14px}
+.pf-mock-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.1)}
+.pf-mock-dot:first-child{background:#ff5f57}
+.pf-mock-dot:nth-child(2){background:#febc2e}
+.pf-mock-dot:nth-child(3){background:#28c840}
+.pf-mock-line{height:8px;border-radius:4px;background:rgba(255,255,255,0.06);margin-bottom:8px}
+.pf-mock-line.gold{background:rgba(255,208,0,0.25);width:60%}
+.pf-mock-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.pf-mock-card{height:52px;border-radius:8px;background:rgba(255,208,0,0.06);border:1px solid rgba(255,208,0,0.1)}
+
+.pf-content{padding:48px 40px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.pf-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,208,0,0.08);border:1px solid rgba(255,208,0,0.2);
+  padding:4px 14px;border-radius:100px;width:fit-content;
+  font-size:0.72rem;font-weight:700;color:var(--gold);
+  letter-spacing:0.1em;text-transform:uppercase;
+}
+.pf-badge::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%}
+.pf-title{
+  font-family:var(--font-display);font-size:1.9rem;font-weight:800;
+  line-height:1.15;
+}
+.pf-desc{color:var(--grey);font-size:0.9rem;line-height:1.75;font-weight:300}
+.pf-tags{display:flex;gap:8px;flex-wrap:wrap}
+.pf-tag{
+  padding:5px 14px;border-radius:100px;
+  border:1px solid var(--border);
+  font-size:0.75rem;color:var(--grey);font-weight:500;
+}
+.pf-results{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  background:rgba(255,208,0,0.04);border:1px solid rgba(255,208,0,0.12);
+  border-radius:16px;padding:20px 16px;margin-top:4px;
+}
+.pf-result-num{font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--gold)}
+.pf-result-label{font-size:0.73rem;color:var(--grey);margin-top:2px;line-height:1.4}
+.pf-link{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--white);font-weight:600;font-size:0.88rem;
+  text-decoration:none;margin-top:4px;
+  transition:color 0.3s;
+}
+.pf-link:hover{color:var(--gold)}
+.pf-link-arrow{
+  width:32px;height:32px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.8rem;transition:all 0.3s;
+}
+.pf-link:hover .pf-link-arrow{background:var(--gold);border-color:var(--gold);color:#000;transform:rotate(45deg)}
+
+/* ========================================
+   PROJECTS GRID
+   ======================================== */
+.projects-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.proj-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:24px;overflow:hidden;
+  transition:transform 0.4s,border-color 0.4s,box-shadow 0.4s;
+  cursor:pointer;display:flex;flex-direction:column;
+}
+.proj-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,208,0,0.2);
+  box-shadow:0 24px 60px rgba(0,0,0,0.5);
+}
+.proj-visual{
+  height:200px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.proj-visual::before{
+  content:'';position:absolute;inset:0;
+  transition:transform 0.6s;
+}
+.proj-card:hover .proj-visual::before{transform:scale(1.05)}
+/* Unique gradient bg for each card category */
+.pv-web{background:linear-gradient(135deg,#080d05,#0a1408)}
+.pv-web::before{background:radial-gradient(circle at 30% 50%,rgba(255,208,0,0.15) 0%,transparent 60%)}
+.pv-app{background:linear-gradient(135deg,#050810,#080510)}
+.pv-app::before{background:radial-gradient(circle at 70% 30%,rgba(100,180,255,0.12) 0%,transparent 60%)}
+.pv-sys{background:linear-gradient(135deg,#050d0d,#030808)}
+.pv-sys::before{background:radial-gradient(circle at 50% 60%,rgba(0,220,180,0.1) 0%,transparent 60%)}
+.pv-brand{background:linear-gradient(135deg,#0d0508,#100308)}
+.pv-brand::before{background:radial-gradient(circle at 60% 40%,rgba(255,100,120,0.1) 0%,transparent 60%)}
+.pv-seo{background:linear-gradient(135deg,#080508,#0a060d)}
+.pv-seo::before{background:radial-gradient(circle at 40% 50%,rgba(180,100,255,0.1) 0%,transparent 60%)}
+
+.proj-visual-icon{
+  position:relative;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  filter:drop-shadow(0 4px 16px rgba(0,0,0,0.5));
+}
+.proj-visual-icon svg{width:32px;height:32px;color:var(--gold)}
+.proj-cat-pill{
+  position:absolute;top:14px;left:14px;
+  background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);
+  border:1px solid var(--border);border-radius:100px;
+  padding:4px 12px;font-size:0.7rem;font-weight:700;
+  color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;
+  z-index:2;
+}
+.proj-body{padding:24px;flex:1;display:flex;flex-direction:column;gap:10px}
+.proj-title{
+  font-family:var(--font-display);font-weight:700;font-size:1.05rem;
+  line-height:1.25;
+}
+.proj-client{font-size:0.78rem;color:var(--gold);font-weight:600;opacity:0.8}
+.proj-desc{color:var(--grey);font-size:0.84rem;line-height:1.65;font-weight:300;flex:1}
+.proj-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.proj-tag{
+  padding:3px 10px;border-radius:100px;
+  border:1px solid var(--border);font-size:0.7rem;color:var(--grey2);
+}
+.proj-footer{
+  padding:16px 24px;border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.proj-result{font-size:0.78rem;color:var(--grey)}
+.proj-result strong{color:var(--gold);font-weight:700}
+.proj-arrow{
+  width:30px;height:30px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;color:var(--grey);
+  transition:all 0.3s;
+}
+.proj-card:hover .proj-arrow{background:var(--gold);border-color:var(--gold);color:#000;transform:rotate(45deg)}
+
+/* ========================================
+   LOAD MORE
+   ======================================== */
+.portfolio-load-more{
+  text-align:center;margin-top:56px;
+}
+.load-more-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:transparent;border:1px solid var(--border);
+  color:var(--white);font-family:var(--font-body);font-size:0.88rem;font-weight:600;
+  padding:14px 32px;border-radius:100px;cursor:pointer;
+  transition:all 0.3s;
+}
+.load-more-btn:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ========================================
+   CTA STRIP
+   ======================================== */
+#proj-cta{
+  padding:80px 5%;
+  background:linear-gradient(135deg,#0d0d00,#0a0800);
+}
+.proj-cta-inner{
+  max-width:1400px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:40px;flex-wrap:wrap;
+}
+.proj-cta-text h2{
+  font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.8rem);
+  font-weight:800;margin-bottom:8px;
+}
+.proj-cta-text h2 span{color:var(--gold)}
+.proj-cta-text p{color:var(--grey);font-size:0.95rem}
+.proj-cta-btns{display:flex;gap:16px;flex-wrap:wrap;flex-shrink:0}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media(max-width:1100px){
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .project-featured{grid-template-columns:1fr}
+  .pf-visual{min-height:240px}
+  .pf-content{padding:32px 28px}
+  .proj-stats-row{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .projects-grid{grid-template-columns:1fr}
+  .pf-results{grid-template-columns:repeat(3,1fr)}
+  .proj-cta-inner{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/images/mwanga-logo.png" alt="Mwanga Digital Solutions Logo"/>
+    <div class="nav-logo-text">Mwanga Digital<span>Solutions</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="has-dropdown">
+      <a href="services.html">Services <span class="drop-arrow"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></span></a>
+      <div class="nav-dropdown">
+        <div class="nd-split">
+          <div class="nd-left">
+            <a href="services.html#web-design" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 7h20M7 11.5l2.5 2.5-2.5 2.5M13 16h4"/></svg></span><span><span class="nd-title">Website Design & Development</span><span class="nd-sub">Corporate, e-commerce & custom sites</span></span></a>
+            <a href="services.html#mobile-apps" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="3"/><path d="M7 6h10M7 18h10M11 20h2"/></svg></span><span><span class="nd-title">Mobile App Development</span><span class="nd-sub">Android, iOS & cross-platform apps</span></span></a>
+            <a href="services.html#systems" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 7V5M12 7V5M15 7V5M9 19v-2M12 19v-2M15 19v-2M5 9H7M5 12H7M5 15H7M17 9h2M17 12h2M17 15h2"/></svg></span><span><span class="nd-title">System Design & Development</span><span class="nd-sub">CRM, school, inventory & custom systems</span></span></a>
+            <a href="services.html#seo" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m21 21-4.35-4.35M7 13l2-2 2 2 2-3"/></svg></span><span><span class="nd-title">SEO Optimization</span><span class="nd-sub">Rankings, visibility & local SEO</span></span></a>
+            <a href="services.html#redesign" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></span><span><span class="nd-title">Website Redesign</span><span class="nd-sub">Modern UI/UX & performance upgrades</span></span></a>
+            <a href="services.html#maintenance" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5.25 3.8 10.74 9 12 5.2-1.26 9-6.75 9-12V6Z"/><path d="m9 12 2 2 4-4"/></svg></span><span><span class="nd-title">Maintenance & Support</span><span class="nd-sub">Security, updates & ongoing care</span></span></a>
+            <a href="services.html#graphics" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></span><span><span class="nd-title">Graphics Design</span><span class="nd-sub">Branding, logos & visual identity</span></span></a>
+          </div>
+          <div class="nd-right">
+            <div class="nd-r-eyebrow">Our Expertise</div>
+            <div class="nd-r-heading">Digital<br/>Solutions<br/>That <span>Deliver</span></div>
+            <p class="nd-r-sub">7 specialist services. One focused team. Zero compromise.</p>
+            <div class="nd-r-divider"></div>
+            <div class="nd-r-stats">
+              <div class="nd-r-stat"><span class="nd-r-stat-n">50+</span><span class="nd-r-stat-l">Projects delivered</span></div>
+              <div class="nd-r-stat"><span class="nd-r-stat-n">98%</span><span class="nd-r-stat-l">Client satisfaction</span></div>
+              <div class="nd-r-stat"><span class="nd-r-stat-n">5yr</span><span class="nd-r-stat-l">Industry experience</span></div>
+            </div>
+            <a href="services.html" class="nd-r-cta">View All Services →</a>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Talk</a>
+  <div class="nav-hamburger" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu">
+  <button class="mob-close" onclick="closeMobileMenu()">✕</button>
+  <a href="index.html" class="mob-link" onclick="closeMobileMenu()">Home</a>
+  <a href="about.html" class="mob-link" onclick="closeMobileMenu()">About</a>
+  <a href="services.html" class="mob-link">Services</a>
+  <div class="mob-dropdown">
+    <a href="services.html#web-design" onclick="closeMobileMenu()">Web Design & Development</a>
+    <a href="services.html#mobile-apps" onclick="closeMobileMenu()">Mobile App Development</a>
+    <a href="services.html#systems" onclick="closeMobileMenu()">System Development</a>
+    <a href="services.html#seo" onclick="closeMobileMenu()">SEO Optimization</a>
+    <a href="services.html#redesign" onclick="closeMobileMenu()">Website Redesign</a>
+    <a href="services.html#maintenance" onclick="closeMobileMenu()">Maintenance & Support</a>
+    <a href="services.html#graphics" onclick="closeMobileMenu()">Graphics Design</a>
+  </div>
+  <a href="projects.html" class="mob-link" onclick="closeMobileMenu()">Projects</a>
+  <a href="blog.html" class="mob-link" onclick="closeMobileMenu()">Blog</a>
+  <a href="contact.html" class="mob-link" onclick="closeMobileMenu()">Contact</a>
+  <a href="contact.html" class="btn-primary" onclick="closeMobileMenu()">Let's Talk →</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="projects-hero">
+  <div class="ph-bg"></div>
+  <div class="ph-grid"></div>
+  <!-- Floating pills -->
+  <div class="ph-pill ph-pill-1"><div class="ph-pill-dot"></div>50+ Projects Delivered</div>
+  <div class="ph-pill ph-pill-2 ph-pill-2"><div class="ph-pill-dot"></div>98% Client Satisfaction</div>
+  <div class="ph-inner fade-up">
+    <div class="ph-tag">Our Portfolio</div>
+    <h1 class="ph-h1">Work We're<br/><span>Proud Of</span></h1>
+    <p class="ph-sub">From brand-new startups to established enterprises — explore the digital solutions we've built that make a real difference.</p>
+  </div>
+</section>
+
+<!-- ===== STATS MINI ===== -->
+<div id="proj-stats">
+  <div class="proj-stats-row">
+    <div class="ps-item fade-up">
+      <div class="ps-num stat-num" data-target="50" data-suffix="+">50+</div>
+      <div class="ps-label">Projects Delivered</div>
+    </div>
+    <div class="ps-item fade-up">
+      <div class="ps-num stat-num" data-target="35" data-suffix="+">35+</div>
+      <div class="ps-label">Happy Clients</div>
+    </div>
+    <div class="ps-item fade-up">
+      <div class="ps-num stat-num" data-target="7" data-suffix="">7</div>
+      <div class="ps-label">Service Specialities</div>
+    </div>
+    <div class="ps-item fade-up">
+      <div class="ps-num stat-num" data-target="98" data-suffix="%">98%</div>
+      <div class="ps-label">Client Retention Rate</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PORTFOLIO ===== -->
+<section id="portfolio">
+  <div class="port-wrap">
+
+    <div class="section-header fade-up">
+      <div class="section-label">Case Studies</div>
+      <h2 class="section-h2">Selected <span style="color:var(--gold)">Projects</span></h2>
+      <p class="section-sub">Filter by category to explore our work across different domains.</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="filterProjects('all', this)">All Work</button>
+      <button class="filter-tab" onclick="filterProjects('web', this)">Web Design</button>
+      <button class="filter-tab" onclick="filterProjects('app', this)">Mobile Apps</button>
+      <button class="filter-tab" onclick="filterProjects('system', this)">Systems</button>
+      <button class="filter-tab" onclick="filterProjects('brand', this)">Branding</button>
+      <button class="filter-tab" onclick="filterProjects('seo', this)">SEO</button>
+    </div>
+
+    <!-- Featured Project -->
+    <div class="project-featured fade-up" data-cat="web">
+      <div class="pf-visual">
+        <div class="pf-mock">
+          <div class="pf-mock-bar">
+            <div class="pf-mock-dot"></div><div class="pf-mock-dot"></div><div class="pf-mock-dot"></div>
+          </div>
+          <div class="pf-mock-line gold"></div>
+          <div class="pf-mock-line" style="width:90%"></div>
+          <div class="pf-mock-line" style="width:70%"></div>
+          <div class="pf-mock-grid">
+            <div class="pf-mock-card"></div>
+            <div class="pf-mock-card"></div>
+            <div class="pf-mock-card"></div>
+            <div class="pf-mock-card"></div>
+          </div>
+        </div>
+      </div>
+      <div class="pf-content">
+        <div class="pf-badge">Featured · Web Design</div>
+        <h3 class="pf-title">PrimeCare Clinic<br/>Digital Platform</h3>
+        <p class="pf-desc">A complete digital overhaul for Nairobi's PrimeCare Clinic — from branding through to a fully responsive website with integrated appointment booking, patient portal, and SEO strategy that positioned them as the top clinic in their region.</p>
+        <div class="pf-tags">
+          <span class="pf-tag">UI/UX Design</span>
+          <span class="pf-tag">Web Development</span>
+          <span class="pf-tag">SEO</span>
+          <span class="pf-tag">Booking System</span>
+        </div>
+        <div class="pf-results">
+          <div><div class="pf-result-num">300%</div><div class="pf-result-label">Traffic Increase</div></div>
+          <div><div class="pf-result-num">#1</div><div class="pf-result-label">Google Ranking</div></div>
+          <div><div class="pf-result-num">4mo</div><div class="pf-result-label">Delivery Time</div></div>
+        </div>
+        <a href="contact.html" class="pf-link">
+          Start a Similar Project
+          <div class="pf-link-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid" id="projects-grid">
+
+      <div class="proj-card fade-up" data-cat="system">
+        <div class="proj-visual pv-sys">
+          <div class="proj-cat-pill">System</div>
+          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">Greenfield Academy</div>
+          <h3 class="proj-title">School Management System</h3>
+          <p class="proj-desc">Custom end-to-end school ERP covering student records, fee collection, examinations, report generation, and staff management — deployed across 3 campuses.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">System Dev</span>
+            <span class="proj-tag">Database</span>
+            <span class="proj-tag">Dashboard</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result"><strong>1,200+</strong> students managed</span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" data-cat="app">
+        <div class="proj-visual pv-app">
+          <div class="proj-cat-pill">Mobile App</div>
+          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">Hope Community NGO</div>
+          <h3 class="proj-title">Beneficiary Management App</h3>
+          <p class="proj-desc">A cross-platform mobile app enabling the NGO to register, track, and communicate with over 5,000 beneficiaries — including offline sync for low-connectivity areas.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Flutter</span>
+            <span class="proj-tag">Offline-first</span>
+            <span class="proj-tag">Android/iOS</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result"><strong>5,000+</strong> beneficiaries reached</span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" data-cat="web">
+        <div class="proj-visual pv-web">
+          <div class="proj-cat-pill">E-Commerce</div>
+          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">ShopAfrica Online</div>
+          <h3 class="proj-title">E-Commerce Platform</h3>
+          <p class="proj-desc">A fully featured e-commerce platform with product catalogue, cart, M-Pesa checkout, inventory management, and a seller dashboard — built to scale from day one.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">E-Commerce</span>
+            <span class="proj-tag">M-Pesa</span>
+            <span class="proj-tag">Admin Panel</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result"><strong>180%</strong> sales growth</span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" data-cat="brand">
+        <div class="proj-visual pv-brand">
+          <div class="proj-cat-pill">Branding</div>
+          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">Kariuki Enterprises</div>
+          <h3 class="proj-title">Complete Brand Identity</h3>
+          <p class="proj-desc">Full brand identity creation from scratch — logo design, brand guidelines, stationery, social media templates, and a corporate website aligned with their business vision.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Logo Design</span>
+            <span class="proj-tag">Brand Guide</span>
+            <span class="proj-tag">Web Design</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result"><strong>300%</strong> website traffic</span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" data-cat="seo">
+        <div class="proj-visual pv-seo">
+          <div class="proj-cat-pill">SEO</div>
+          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">PrimeCare Clinic</div>
+          <h3 class="proj-title">Local SEO & Content Strategy</h3>
+          <p class="proj-desc">Comprehensive local SEO campaign including technical audit, content strategy, Google Business optimisation, and link building — achieving top-3 Google rankings in 5 months.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Technical SEO</span>
+            <span class="proj-tag">Content</span>
+            <span class="proj-tag">Local SEO</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result">Page <strong>#1</strong> in 5 months</span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" data-cat="system">
+        <div class="proj-visual pv-sys">
+          <div class="proj-cat-pill">System</div>
+          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">Retail Chain Client</div>
+          <h3 class="proj-title">Inventory & POS System</h3>
+          <p class="proj-desc">Custom inventory management and point-of-sale system for a multi-branch retail chain — real-time stock tracking, sales analytics, and automated reorder alerts.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">POS</span>
+            <span class="proj-tag">Inventory</span>
+            <span class="proj-tag">Analytics</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result"><strong>4</strong> branches deployed</span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" data-cat="app">
+        <div class="proj-visual pv-app">
+          <div class="proj-cat-pill">Mobile App</div>
+          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">Local Logistics Company</div>
+          <h3 class="proj-title">Delivery Tracking App</h3>
+          <p class="proj-desc">Real-time delivery tracking application for drivers and customers — live GPS tracking, status updates, digital proof of delivery, and a dispatch management dashboard.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">GPS Tracking</span>
+            <span class="proj-tag">React Native</span>
+            <span class="proj-tag">Firebase</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result"><strong>40%</strong> faster deliveries</span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" data-cat="web">
+        <div class="proj-visual pv-web">
+          <div class="proj-cat-pill">Web Design</div>
+          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">Startup — FinTech</div>
+          <h3 class="proj-title">FinTech Corporate Website</h3>
+          <p class="proj-desc">Sleek, conversion-focused corporate website for an emerging FinTech startup — premium design, animated data visualisations, investor section, and integration-ready architecture.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">UI/UX</span>
+            <span class="proj-tag">Animation</span>
+            <span class="proj-tag">CMS</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result">Launched in <strong>6 weeks</strong></span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" data-cat="brand">
+        <div class="proj-visual pv-brand">
+          <div class="proj-cat-pill">Branding</div>
+          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4M19 17v4M3 5h4M17 19h4"/></svg></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">Fashion Brand</div>
+          <h3 class="proj-title">Fashion Brand Visual Identity</h3>
+          <p class="proj-desc">Bold and distinctive brand identity for a Nairobi-based fashion label — logo, packaging design, lookbook layouts, and a product photography style guide.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Logo Design</span>
+            <span class="proj-tag">Packaging</span>
+            <span class="proj-tag">Print</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result">Complete brand in <strong>3 weeks</strong></span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+    </div><!-- /projects-grid -->
+
+    <div class="portfolio-load-more fade-up">
+      <button class="load-more-btn" onclick="this.textContent='Coming soon — more case studies dropping soon!'">
+        Load More Projects <span>↓</span>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CTA STRIP ===== -->
+<section id="proj-cta">
+  <div class="proj-cta-inner fade-up">
+    <div class="proj-cta-text">
+      <h2>Ready to Be Our <span>Next Success Story?</span></h2>
+      <p>Let's build something remarkable together. Get your free project consultation today.</p>
+    </div>
+    <div class="proj-cta-btns">
+      <a href="contact.html" class="btn-primary">Start a Project →</a>
+      <a href="services.html" class="btn-secondary">Explore Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="assets/images/mwanga-logo.png" alt="Mwanga Digital Solutions"/>
+        <div class="footer-logo-text">Mwanga Digital<span>Solutions</span></div>
+      </div>
+      <p class="footer-desc">Empowering businesses with smart, scalable, and user-focused digital solutions that drive real growth.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" title="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" class="social-btn" title="Twitter/X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></a>
+        <a href="#" class="social-btn" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="social-btn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" class="social-btn" title="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.12 6.12l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#web-design">Web Development</a></li>
+        <li><a href="services.html#mobile-apps">Mobile Apps</a></li>
+        <li><a href="services.html#systems">System Design</a></li>
+        <li><a href="services.html#seo">SEO Optimization</a></li>
+        <li><a href="services.html#graphics">Graphics Design</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@mwangadigital.com">info@mwangadigital.com</a></li>
+        <li><a href="tel:+254700000000">+254 700 000 000</a></li>
+        <li><a href="#">Nairobi, Kenya</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2024 <span>Mwanga Digital Solutions</span>. All rights reserved.</p>
+    <p class="footer-copy">Designed & Built with ❤️ in Kenya</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+function filterProjects(cat, btn){
+  /* Update active tab */
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+
+  /* Show/hide cards */
+  const cards = document.querySelectorAll('#projects-grid .proj-card, .project-featured');
+  cards.forEach(card => {
+    const cardCat = card.dataset.cat;
+    if(cat === 'all' || cardCat === cat){
+      card.style.display = '';
+      /* Re-trigger fade animation */
+      card.classList.remove('visible');
+      setTimeout(() => card.classList.add('visible'), 50);
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>

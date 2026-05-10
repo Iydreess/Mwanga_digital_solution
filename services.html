@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services | Mwanga Digital Solutions</title>
+<meta name="description" content="Explore Mwanga Digital Solutions' full range of services — web design, mobile apps, system development, SEO, graphics design and more."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/global.css"/>
+<style>
+
+/* ========================================
+   HERO
+   ======================================== */
+#services-hero{
+  min-height:56vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  padding:140px 5% 80px;
+  position:relative;overflow:hidden;
+  background:var(--bg);
+}
+.sh-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%,rgba(255,208,0,0.08) 0%,transparent 65%),
+    linear-gradient(to bottom,rgba(5,5,5,0) 0%,rgba(5,5,5,1) 100%);
+  pointer-events:none;
+}
+/* Decorative architectural columns (matches reference silhouette) */
+.sh-columns{
+  position:absolute;top:0;left:0;right:0;
+  height:55%;display:flex;justify-content:space-between;
+  align-items:flex-start;padding:0 8%;
+  pointer-events:none;overflow:hidden;
+}
+.sh-col{
+  width:3px;
+  background:linear-gradient(to bottom,rgba(255,208,0,0.12),transparent);
+  border-radius:2px;
+}
+.sh-col:nth-child(1){height:90%;margin-top:0}
+.sh-col:nth-child(2){height:70%;margin-top:5%}
+.sh-col:nth-child(3){height:95%;margin-top:0}
+.sh-col:nth-child(4){height:60%;margin-top:8%}
+.sh-col:nth-child(5){height:90%;margin-top:0}
+.sh-col:nth-child(6){height:75%;margin-top:3%}
+.sh-col:nth-child(7){height:88%;margin-top:0}
+.sh-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 0%,black 0%,transparent 100%);
+  pointer-events:none;
+}
+.sh-inner{position:relative;z-index:2;max-width:700px}
+.sh-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,208,0,0.1);border:1px solid rgba(255,208,0,0.3);
+  padding:6px 18px;border-radius:100px;
+  font-size:0.75rem;font-weight:700;color:var(--gold);
+  letter-spacing:0.12em;text-transform:uppercase;margin-bottom:24px;
+}
+.sh-tag::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+.sh-h1{
+  font-family:var(--font-display);
+  font-size:clamp(3rem,7vw,5.5rem);
+  font-weight:800;line-height:1.0;
+  letter-spacing:-0.03em;
+}
+.sh-h1 span{color:var(--gold)}
+.sh-sub{
+  color:var(--grey);font-size:0.98rem;line-height:1.8;
+  font-weight:300;margin-top:20px;max-width:520px;margin-left:auto;margin-right:auto;
+}
+
+/* ========================================
+   SERVICES GRID
+   ======================================== */
+#services-grid{padding:80px 5% 100px;background:var(--bg)}
+.sg-inner{max-width:1400px;margin:0 auto}
+.sg-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+.sg-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius2);
+  padding:40px;
+  position:relative;overflow:hidden;
+  cursor:pointer;
+  transition:border-color 0.4s,transform 0.4s,box-shadow 0.4s;
+  display:flex;flex-direction:column;
+}
+.sg-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 0% 0%,rgba(255,208,0,0.06) 0%,transparent 55%);
+  opacity:0;transition:opacity 0.4s;
+}
+.sg-card:hover{
+  border-color:rgba(255,208,0,0.28);
+  transform:translateY(-5px);
+  box-shadow:0 28px 64px rgba(0,0,0,0.55),0 0 0 1px rgba(255,208,0,0.06);
+}
+.sg-card:hover::before{opacity:1}
+/* Top accent line on hover */
+.sg-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s;
+}
+.sg-card:hover::after{transform:scaleX(1)}
+
+.sg-icon-wrap{
+  width:56px;height:56px;border-radius:16px;
+  background:rgba(255,208,0,0.08);
+  border:1px solid rgba(255,208,0,0.18);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;margin-bottom:28px;
+  transition:background 0.3s,transform 0.3s;
+  flex-shrink:0;
+}
+.sg-icon-wrap svg{width:24px;height:24px;color:var(--gold)}
+.sg-card:hover .sg-icon-wrap{background:rgba(255,208,0,0.16);transform:scale(1.08)}
+.sg-num{
+  position:absolute;top:28px;right:32px;
+  font-family:var(--font-display);font-size:0.72rem;font-weight:800;
+  color:rgba(255,255,255,0.05);letter-spacing:0.06em;
+}
+.sg-card h3{
+  font-family:var(--font-display);font-size:1.3rem;
+  font-weight:800;margin-bottom:40px;
+  line-height:1.2;
+}
+.sg-card p{
+  color:var(--grey);font-size:0.9rem;
+  line-height:1.8;font-weight:300;
+  flex:1;margin-bottom:28px;
+}
+.sg-learn{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:0.82rem;font-weight:700;
+  color:var(--gold);text-decoration:none;
+  letter-spacing:0.06em;text-transform:uppercase;
+  transition:gap 0.3s;
+  align-self:flex-start;
+}
+.sg-card:hover .sg-learn{gap:12px}
+.sg-learn-arrow{
+  transition:transform 0.3s;
+  display:inline-block;
+}
+.sg-card:hover .sg-learn-arrow{transform:rotate(-45deg)}
+
+/* ========================================
+   WHY CHOOSE US
+   ======================================== */
+#why-us{
+  padding:100px 5%;
+  background:var(--bg2);
+}
+.wu-inner{max-width:1400px;margin:0 auto}
+.wu-header{
+  text-align:center;margin-bottom:64px;
+}
+.wu-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,208,0,0.1);border:1px solid rgba(255,208,0,0.25);
+  padding:5px 16px;border-radius:100px;
+  font-size:0.7rem;font-weight:700;color:var(--gold);
+  letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;
+}
+.wu-h2{
+  font-family:var(--font-display);
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:800;line-height:1.1;letter-spacing:-0.02em;
+}
+.wu-h2 span{color:var(--gold)}
+.wu-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:32px 24px;
+}
+.wu-item{
+  text-align:center;padding:36px 24px;
+  border-radius:var(--radius2);
+  background:var(--card);border:1px solid var(--border);
+  transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;
+}
+.wu-item:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,208,0,0.22);
+  box-shadow:0 20px 48px rgba(0,0,0,0.4);
+}
+.wu-icon-circle{
+  width:68px;height:68px;border-radius:50%;
+  background:rgba(255,208,0,0.08);
+  border:1px solid rgba(255,208,0,0.2);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+  transition:background 0.3s,transform 0.3s;
+}
+.wu-icon-circle svg{width:26px;height:26px;color:var(--gold)}
+.wu-item:hover .wu-icon-circle{background:rgba(255,208,0,0.16);transform:scale(1.1)}
+.wu-item h4{
+  font-family:var(--font-display);font-size:1rem;
+  font-weight:700;margin-bottom:10px;
+}
+.wu-item p{
+  color:var(--grey);font-size:0.84rem;
+  line-height:1.7;font-weight:300;
+}
+
+/* ========================================
+   LETS TALK
+   ======================================== */
+#lets-talk{
+  padding:100px 5%;
+  background:var(--bg);
+  position:relative;overflow:hidden;
+}
+#lets-talk::before{
+  content:'';position:absolute;
+  bottom:-20%;left:-10%;
+  width:60vw;height:60vw;max-width:700px;
+  background:radial-gradient(circle,rgba(255,208,0,0.08) 0%,transparent 65%);
+  border-radius:50%;pointer-events:none;
+}
+.lt-inner{
+  max-width:1400px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;position:relative;z-index:2;
+}
+.lt-headline{
+  font-family:var(--font-display);
+  font-size:clamp(4rem,9vw,8rem);
+  font-weight:800;line-height:0.88;
+  letter-spacing:-0.05em;margin-bottom:24px;
+}
+.lt-headline span{color:var(--gold);display:block}
+.lt-sub{
+  color:var(--grey);font-size:0.95rem;
+  line-height:1.75;font-weight:300;
+  max-width:380px;
+}
+
+/* Form card */
+.lt-form-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius2);padding:40px;
+  position:relative;overflow:hidden;
+}
+.lt-form-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2),transparent);
+}
+.f-group{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.f-group label{
+  font-size:0.77rem;font-weight:600;
+  color:rgba(255,255,255,0.55);letter-spacing:0.04em;
+}
+.f-group input,.f-group textarea{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:10px;padding:14px 16px;
+  color:var(--white);font-family:var(--font-body);font-size:0.9rem;
+  outline:none;transition:border-color 0.3s,background 0.3s;width:100%;
+}
+.f-group input:focus,.f-group textarea:focus{
+  border-color:rgba(255,208,0,0.4);
+  background:rgba(255,208,0,0.03);
+}
+.f-group textarea{resize:vertical;min-height:120px}
+.btn-submit{
+  width:100%;padding:16px;
+  background:var(--gold);color:#000;
+  font-family:var(--font-display);font-weight:800;font-size:0.95rem;
+  border:none;border-radius:100px;cursor:pointer;
+  transition:all 0.3s;
+  box-shadow:0 0 32px rgba(255,208,0,0.35);
+  letter-spacing:0.02em;
+}
+.btn-submit:hover{
+  background:var(--gold2);
+  box-shadow:0 0 52px rgba(255,208,0,0.65);
+  transform:translateY(-2px);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media(max-width:1024px){
+  .sg-grid{grid-template-columns:1fr}
+  .wu-grid{grid-template-columns:1fr 1fr}
+  .lt-inner{grid-template-columns:1fr;gap:48px}
+}
+@media(max-width:640px){
+  .wu-grid{grid-template-columns:1fr}
+  .lt-headline{font-size:clamp(3.5rem,12vw,6rem)}
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+
+<!-- ── NAVBAR ── -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/images/mwanga-logo.png" alt="Mwanga Digital Solutions"/>
+    <div class="nav-logo-text">Mwanga Digital<span>Solutions</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="has-dropdown">
+      <a href="services.html">Services <span class="drop-arrow"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></span></a>
+      <div class="nav-dropdown">
+        <div class="nd-split">
+          <div class="nd-left">
+            <a href="services.html#web-design" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 7h20M7 11.5l2.5 2.5-2.5 2.5M13 16h4"/></svg></span><span><span class="nd-title">Website Design & Development</span><span class="nd-sub">Corporate, e-commerce & custom sites</span></span></a>
+            <a href="services.html#mobile-apps" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="3"/><path d="M7 6h10M7 18h10M11 20h2"/></svg></span><span><span class="nd-title">Mobile App Development</span><span class="nd-sub">Android, iOS & cross-platform apps</span></span></a>
+            <a href="services.html#systems" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 7V5M12 7V5M15 7V5M9 19v-2M12 19v-2M15 19v-2M5 9H7M5 12H7M5 15H7M17 9h2M17 12h2M17 15h2"/></svg></span><span><span class="nd-title">System Design & Development</span><span class="nd-sub">CRM, school, inventory & custom systems</span></span></a>
+            <a href="services.html#seo" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m21 21-4.35-4.35M7 13l2-2 2 2 2-3"/></svg></span><span><span class="nd-title">SEO Optimization</span><span class="nd-sub">Rankings, visibility & local SEO</span></span></a>
+            <a href="services.html#redesign" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></span><span><span class="nd-title">Website Redesign</span><span class="nd-sub">Modern UI/UX & performance upgrades</span></span></a>
+            <a href="services.html#maintenance" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5.25 3.8 10.74 9 12 5.2-1.26 9-6.75 9-12V6Z"/><path d="m9 12 2 2 4-4"/></svg></span><span><span class="nd-title">Maintenance & Support</span><span class="nd-sub">Security, updates & ongoing care</span></span></a>
+            <a href="services.html#graphics" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></span><span><span class="nd-title">Graphics Design</span><span class="nd-sub">Branding, logos & visual identity</span></span></a>
+          </div>
+          <div class="nd-right">
+            <div class="nd-r-eyebrow">Our Expertise</div>
+            <div class="nd-r-heading">Digital<br/>Solutions<br/>That <span>Deliver</span></div>
+            <p class="nd-r-sub">7 specialist services. One focused team. Zero compromise.</p>
+            <div class="nd-r-divider"></div>
+            <div class="nd-r-stats">
+              <div class="nd-r-stat"><span class="nd-r-stat-n">50+</span><span class="nd-r-stat-l">Projects delivered</span></div>
+              <div class="nd-r-stat"><span class="nd-r-stat-n">98%</span><span class="nd-r-stat-l">Client satisfaction</span></div>
+              <div class="nd-r-stat"><span class="nd-r-stat-n">5yr</span><span class="nd-r-stat-l">Industry experience</span></div>
+            </div>
+            <a href="services.html" class="nd-r-cta">View All Services →</a>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Talk</a>
+  <div class="nav-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu">
+  <button class="mob-close" onclick="closeMobileMenu()">✕</button>
+  <a href="index.html" class="mob-link" onclick="closeMobileMenu()">Home</a>
+  <a href="about.html" class="mob-link" onclick="closeMobileMenu()">About</a>
+  <a href="services.html" class="mob-link">Services</a>
+  <div class="mob-dropdown">
+    <a href="services.html#web-design" onclick="closeMobileMenu()">Web Design & Development</a>
+    <a href="services.html#mobile-apps" onclick="closeMobileMenu()">Mobile App Development</a>
+    <a href="services.html#systems" onclick="closeMobileMenu()">System Development</a>
+    <a href="services.html#seo" onclick="closeMobileMenu()">SEO Optimization</a>
+    <a href="services.html#redesign" onclick="closeMobileMenu()">Website Redesign</a>
+    <a href="services.html#maintenance" onclick="closeMobileMenu()">Maintenance & Support</a>
+    <a href="services.html#graphics" onclick="closeMobileMenu()">Graphics Design</a>
+  </div>
+  <a href="projects.html" class="mob-link" onclick="closeMobileMenu()">Projects</a>
+  <a href="blog.html" class="mob-link" onclick="closeMobileMenu()">Blog</a>
+  <a href="contact.html" class="mob-link" onclick="closeMobileMenu()">Contact</a>
+  <a href="contact.html" class="btn-primary" onclick="closeMobileMenu()">Let's Talk →</a>
+</div>
+
+<!-- ══════════════════════════════════════
+     HERO
+     ══════════════════════════════════════ -->
+<section id="services-hero">
+  <div class="sh-bg"></div>
+  <div class="sh-grid"></div>
+  <div class="sh-columns">
+    <div class="sh-col"></div>
+    <div class="sh-col"></div>
+    <div class="sh-col"></div>
+    <div class="sh-col"></div>
+    <div class="sh-col"></div>
+    <div class="sh-col"></div>
+    <div class="sh-col"></div>
+  </div>
+  <div class="sh-inner fade-up">
+    <div class="sh-tag">What We Offer</div>
+    <h1 class="sh-h1">Discover<br/><span>Our Services</span></h1>
+    <p class="sh-sub">From websites to mobile apps, custom systems to SEO — everything your business needs to grow and thrive in the digital world.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SERVICES GRID
+     ══════════════════════════════════════ -->
+<section id="services-grid">
+  <div class="sg-inner">
+    <div class="sg-grid">
+
+      <!-- 01 Web Design -->
+      <div class="sg-card fade-up" id="web-design">
+        <span class="sg-num">01</span>
+        <div class="sg-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 7h20M7 11.5l2.5 2.5-2.5 2.5M13 16h4"/></svg></div>
+        <h3>Website Design &amp; Development</h3>
+        <p>We create modern, responsive, fast, and user-friendly websites tailored to your business goals. From corporate sites and e-commerce platforms to NGO portals and custom web applications — every site we build is designed to convert visitors into customers.</p>
+        <a href="contact.html?service=web-design" class="sg-learn">Learn More <span class="sg-learn-arrow">→</span></a>
+      </div>
+
+      <!-- 02 Mobile Apps -->
+      <div class="sg-card fade-up" id="mobile-apps">
+        <span class="sg-num">02</span>
+        <div class="sg-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="3"/><path d="M7 6h10M7 18h10M11 20h2"/></svg></div>
+        <h3>Mobile App Development</h3>
+        <p>We develop scalable and intuitive mobile applications for Android, iOS, and cross-platform environments. Our apps are built to improve accessibility, boost customer engagement, and streamline business operations on the go.</p>
+        <a href="contact.html?service=mobile-apps" class="sg-learn">Learn More <span class="sg-learn-arrow">→</span></a>
+      </div>
+
+      <!-- 03 System Design -->
+      <div class="sg-card fade-up" id="systems">
+        <span class="sg-num">03</span>
+        <div class="sg-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 7V5M12 7V5M15 7V5M9 19v-2M12 19v-2M15 19v-2M5 9H7M5 12H7M5 15H7M17 9h2M17 12h2M17 15h2"/></svg></div>
+        <h3>System Design &amp; Development</h3>
+        <p>We design and build custom digital systems that automate operations and streamline workflows. School management, inventory control, CRM platforms, booking systems, and more — built specifically for your business processes.</p>
+        <a href="contact.html?service=systems" class="sg-learn">Learn More <span class="sg-learn-arrow">→</span></a>
+      </div>
+
+      <!-- 04 SEO -->
+      <div class="sg-card fade-up" id="seo">
+        <span class="sg-num">04</span>
+        <div class="sg-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m21 21-4.35-4.35M7 13l2-2 2 2 2-3"/></svg></div>
+        <h3>SEO Optimization</h3>
+        <p>We help businesses improve online visibility and climb search rankings through technical SEO, on-page optimization, keyword research, content strategy, and local SEO. Get found by customers who are actively searching for what you offer.</p>
+        <a href="contact.html?service=seo" class="sg-learn">Learn More <span class="sg-learn-arrow">→</span></a>
+      </div>
+
+      <!-- 05 Redesign -->
+      <div class="sg-card fade-up" id="redesign">
+        <span class="sg-num">05</span>
+        <div class="sg-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></div>
+        <h3>Website Redesign</h3>
+        <p>We transform outdated websites into modern, high-performing digital experiences. Improved UI/UX design, mobile responsiveness, page speed optimization, and brand modernization — giving your existing site a complete, results-driven overhaul.</p>
+        <a href="contact.html?service=redesign" class="sg-learn">Learn More <span class="sg-learn-arrow">→</span></a>
+      </div>
+
+      <!-- 06 Maintenance -->
+      <div class="sg-card fade-up" id="maintenance">
+        <span class="sg-num">06</span>
+        <div class="sg-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5.25 3.8 10.74 9 12 5.2-1.26 9-6.75 9-12V6Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Maintenance &amp; Support</h3>
+        <p>We provide ongoing technical support covering security updates, performance monitoring, backup management, bug fixing, content updates, and general technical assistance — so your website stays fast, secure, and up to date at all times.</p>
+        <a href="contact.html?service=maintenance" class="sg-learn">Learn More <span class="sg-learn-arrow">→</span></a>
+      </div>
+
+      <!-- 07 Graphics -->
+      <div class="sg-card fade-up" id="graphics" style="grid-column:1/-1;max-width:calc(50% - 10px)">
+        <span class="sg-num">07</span>
+        <div class="sg-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></div>
+        <h3>Graphics Design</h3>
+        <p>Creative visual design solutions tailored to your brand — logos, brand identity, marketing materials, social media graphics, UI kits, pitch decks, and print designs. We craft visuals that communicate your brand story with clarity and impact.</p>
+        <a href="contact.html?service=graphics" class="sg-learn">Learn More <span class="sg-learn-arrow">→</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     WHY CHOOSE US
+     ══════════════════════════════════════ -->
+<section id="why-us">
+  <div class="wu-inner">
+    <div class="wu-header fade-up">
+      <div class="wu-badge">Why Choose Us</div>
+      <h2 class="wu-h2">Why we are your <span>best choice</span></h2>
+    </div>
+    <div class="wu-grid">
+      <div class="wu-item fade-up">
+        <div class="wu-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"/><path d="M6 9V3h12v6a6 6 0 0 1-12 0ZM12 15v6M9 21h6"/></svg></div>
+        <h4>Proven Track Record</h4>
+        <p>We have built a reputation as a trusted and reliable partner in achieving business success, with 100+ projects delivered.</p>
+      </div>
+      <div class="wu-item fade-up">
+        <div class="wu-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h4>Tailored Solutions</h4>
+        <p>We offer personalized solutions tailored to your specific goals, audience, and industry — never templated, always custom.</p>
+      </div>
+      <div class="wu-item fade-up">
+        <div class="wu-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>Client-Centric Focus</h4>
+        <p>Your success is our priority. We prioritize understanding your business goals and building solutions that create real impact.</p>
+      </div>
+      <div class="wu-item fade-up">
+        <div class="wu-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h4>Transparent Communication</h4>
+        <p>We believe in open and honest communication every step of the way — no surprises, no hidden costs, just clarity.</p>
+      </div>
+      <div class="wu-item fade-up">
+        <div class="wu-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h4>Dedicated Support</h4>
+        <p>Your success is our priority and we're here to support you every step of the way — from project start to long after launch.</p>
+      </div>
+      <div class="wu-item fade-up">
+        <div class="wu-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h4>Expertise Across Industries</h4>
+        <p>Our team has extensive experience working across various industries, bringing cross-sector knowledge to every project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     LET'S TALK
+     ══════════════════════════════════════ -->
+<section id="lets-talk">
+  <div class="lt-inner">
+    <div class="lt-left fade-up">
+      <h2 class="lt-headline">Let's<br/><span>Talk!</span></h2>
+      <p class="lt-sub">Have a project in mind? Tell us about it and we'll get back to you with a tailored proposal within 24 hours.</p>
+    </div>
+    <div class="lt-right fade-up">
+      <div class="lt-form-card">
+        <form onsubmit="return false">
+          <div class="f-group">
+            <label>Name</label>
+            <input type="text" placeholder="Jane Smith"/>
+          </div>
+          <div class="f-group">
+            <label>Email</label>
+            <input type="email" placeholder="jane@company.com"/>
+          </div>
+          <div class="f-group">
+            <label>Message</label>
+            <textarea placeholder="Write your message…"></textarea>
+          </div>
+          <button class="btn-submit" type="button" onclick="handleFormSubmit(this)">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="assets/images/mwanga-logo.png" alt="Mwanga Digital Solutions"/>
+        <div class="footer-logo-text">Mwanga Digital<span>Solutions</span></div>
+      </div>
+      <p class="footer-desc">Empowering businesses with smart, scalable, and user-focused digital solutions that drive real growth.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" title="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" class="social-btn" title="Twitter/X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></a>
+        <a href="#" class="social-btn" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="social-btn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" class="social-btn" title="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.12 6.12l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#web-design">Web Development</a></li>
+        <li><a href="services.html#mobile-apps">Mobile Apps</a></li>
+        <li><a href="services.html#systems">System Design</a></li>
+        <li><a href="services.html#seo">SEO Optimization</a></li>
+        <li><a href="services.html#graphics">Graphics Design</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@mwangadigital.com">info@mwangadigital.com</a></li>
+        <li><a href="tel:+254700000000">+254 700 000 000</a></li>
+        <li><a href="#">Nairobi, Kenya</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2024 <span>Mwanga Digital Solutions</span>. All rights reserved.</p>
+    <p class="footer-copy">Designed & Built with ❤️ in Kenya</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

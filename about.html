@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Us | Mwanga Digital Solutions</title>
+<meta name="description" content="Learn about Mwanga Digital Solutions — our story, founder, vision, values, team, and process behind your digital growth."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/global.css"/>
+<style>
+
+/* ========================================
+   HERO
+   ======================================== */
+#about-hero{
+  min-height:82vh;display:flex;align-items:flex-end;
+  position:relative;overflow:hidden;padding:0;
+}
+.hero-photo{
+  position:absolute;inset:0;z-index:0;
+  background:
+    linear-gradient(to bottom,rgba(5,5,5,0.25) 0%,rgba(5,5,5,0.55) 45%,rgba(5,5,5,0.97) 100%),
+    linear-gradient(120deg,#0f0c00 0%,#1c1600 35%,#0d0d0d 100%);
+}
+/* Simulated photo texture — two "people" silhouette areas */
+.hero-photo::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 38% 70% at 30% 35%,rgba(255,208,0,0.09) 0%,transparent 70%),
+    radial-gradient(ellipse 35% 65% at 68% 30%,rgba(255,208,0,0.06) 0%,transparent 65%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E") center/cover;
+}
+.hero-photo::after{
+  content:'';position:absolute;top:-20%;right:-8%;
+  width:65vw;height:65vw;max-width:750px;max-height:750px;
+  background:radial-gradient(circle,rgba(255,208,0,0.11) 0%,transparent 62%);
+  border-radius:50%;
+}
+/* Grid lines */
+.hero-grid{
+  position:absolute;inset:0;z-index:1;
+  background-image:
+    linear-gradient(rgba(255,208,0,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,208,0,0.025) 1px,transparent 1px);
+  background-size:70px 70px;
+  mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 0%,transparent 100%);
+  pointer-events:none;
+}
+.hero-content-wrap{
+  position:relative;z-index:2;
+  width:100%;max-width:1400px;margin:0 auto;
+  padding:150px 5% 90px;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,208,0,0.1);border:1px solid rgba(255,208,0,0.3);
+  padding:6px 18px;border-radius:100px;
+  font-size:0.75rem;font-weight:700;color:var(--gold);
+  letter-spacing:0.12em;text-transform:uppercase;margin-bottom:28px;
+}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+.hero-h1{
+  font-family:var(--font-display);
+  font-size:clamp(3rem,6.5vw,6rem);
+  font-weight:800;line-height:1.0;
+  letter-spacing:-0.03em;margin-bottom:8px;
+}
+.hero-h1 .gold-line{
+  display:block;color:var(--gold);
+}
+.hero-sub{
+  font-size:1rem;color:var(--grey);
+  line-height:1.8;max-width:520px;
+  font-weight:300;margin-top:20px;
+}
+.scroll-hint{
+  display:inline-flex;align-items:center;gap:12px;
+  margin-top:48px;color:var(--grey);
+  font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;
+}
+.scroll-line{width:48px;height:1px;background:var(--gold);position:relative;overflow:hidden}
+.scroll-line::after{
+  content:'';position:absolute;top:0;left:-100%;
+  width:100%;height:100%;background:#fff;
+  animation:slideLine 2s ease-in-out infinite;
+}
+@keyframes slideLine{0%{left:-100%}100%{left:100%}}
+
+/* ========================================
+   ABOUT COMPANY
+   ======================================== */
+#about-company{padding:100px 5%;background:var(--bg)}
+.ac-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.ac-left .section-label{margin-bottom:20px}
+.ac-h2{
+  font-family:var(--font-display);
+  font-size:clamp(1.9rem,3.5vw,2.9rem);
+  font-weight:800;line-height:1.15;letter-spacing:-0.02em;margin-bottom:24px;
+}
+.ac-h2 span{color:var(--gold)}
+.ac-p{color:var(--grey);font-size:0.94rem;line-height:1.85;font-weight:300;margin-bottom:14px}
+.ac-p strong{color:var(--white);font-weight:600}
+
+/* Accordion */
+.acc-wrap{display:flex;flex-direction:column}
+.acc-item{border-bottom:1px solid var(--border);overflow:hidden}
+.acc-item:first-child{border-top:1px solid var(--border)}
+.acc-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 0;cursor:pointer;user-select:none;transition:color 0.3s;
+}
+.acc-head:hover .acc-label{color:var(--gold)}
+.acc-item.open .acc-label{color:var(--gold)}
+.acc-label{font-family:var(--font-display);font-weight:700;font-size:1rem;transition:color 0.3s}
+.acc-btn{
+  width:32px;height:32px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--grey);font-size:1.1rem;font-weight:300;
+  transition:all 0.35s;flex-shrink:0;
+}
+.acc-item.open .acc-btn{background:var(--gold);border-color:var(--gold);color:#000;transform:rotate(45deg)}
+.acc-body{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.45s ease,padding 0.3s;
+  color:var(--grey);font-size:0.88rem;line-height:1.8;font-weight:300;
+}
+.acc-item.open .acc-body{max-height:360px;padding-bottom:22px}
+.acc-body ul{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.acc-body ul li{display:flex;align-items:flex-start;gap:10px}
+.acc-body ul li::before{content:'✦';color:var(--gold);font-size:0.6rem;flex-shrink:0;margin-top:5px}
+
+/* ========================================
+   BRANDS
+   ======================================== */
+#brands-worked{
+  padding:56px 5%;
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.brands-inner{max-width:1400px;margin:0 auto}
+.brands-title{
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(1.3rem,2.5vw,2rem);
+  text-align:center;margin-bottom:40px;
+  color:var(--white);
+}
+.brands-title span{color:var(--gold)}
+.brands-track-wrap{overflow:hidden;position:relative}
+.brands-track-wrap::before,.brands-track-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;
+}
+.brands-track-wrap::before{left:0;background:linear-gradient(90deg,var(--bg2),transparent)}
+.brands-track-wrap::after{right:0;background:linear-gradient(270deg,var(--bg2),transparent)}
+.brands-track{display:flex;gap:0;animation:marquee 30s linear infinite;width:max-content}
+.brands-track:hover{animation-play-state:paused}
+.brand-pill{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 32px;margin:0 8px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:100px;white-space:nowrap;
+  font-family:var(--font-display);font-weight:700;
+  font-size:0.85rem;color:rgba(255,255,255,0.4);
+  letter-spacing:0.04em;text-transform:uppercase;
+  transition:color 0.3s,border-color 0.3s;cursor:default;
+}
+.brand-pill:hover{color:rgba(255,255,255,0.8);border-color:rgba(255,208,0,0.25)}
+.brand-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:0.6;flex-shrink:0}
+
+/* ========================================
+   MEET THE FOUNDER
+   ======================================== */
+#founder{padding:100px 5%;background:var(--bg)}
+.founder-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+
+/* Left — photo card with name overlay */
+.founder-photo-side{position:relative}
+.founder-photo-card{
+  position:relative;border-radius:var(--radius2);overflow:hidden;
+  aspect-ratio:4/5;
+  background:linear-gradient(160deg,#0f0c00 0%,#1c1500 50%,#0d0d0d 100%);
+  border:1px solid var(--border);
+}
+/* Portrait placeholder — gradient with logo */
+.founder-photo-card::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 35%,rgba(255,208,0,0.1) 0%,transparent 65%),
+    linear-gradient(to bottom,rgba(255,208,0,0.05),transparent 50%,rgba(0,0,0,0.6) 100%);
+}
+.founder-avatar-big{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-65%);
+  width:140px;height:140px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-size:3.5rem;font-weight:800;color:#000;
+  box-shadow:0 0 60px rgba(255,208,0,0.3);
+  z-index:1;
+}
+/* Big name behind/over image */
+.founder-name-bg{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:20px 24px 24px;
+  background:linear-gradient(to top,rgba(5,5,5,0.97) 0%,transparent 100%);
+  z-index:2;
+}
+.founder-name-big{
+  font-family:var(--font-display);
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  font-weight:800;line-height:1.0;
+  letter-spacing:-0.02em;
+  color:var(--white);
+  text-transform:uppercase;
+}
+.founder-name-big span{color:var(--gold);display:block;font-size:0.85em}
+.founder-role-tag{
+  display:inline-block;margin-top:8px;
+  background:var(--gold);color:#000;
+  font-size:0.72rem;font-weight:700;
+  padding:4px 14px;border-radius:100px;
+  letter-spacing:0.06em;text-transform:uppercase;
+}
+
+/* Right — bio + stats + pills */
+.founder-bio-side{}
+.founder-bio-side .section-label{margin-bottom:20px}
+.founder-bio-h2{
+  font-family:var(--font-display);
+  font-size:clamp(1.7rem,3vw,2.4rem);
+  font-weight:800;line-height:1.2;letter-spacing:-0.02em;margin-bottom:20px;
+}
+.founder-bio-h2 span{color:var(--gold)}
+.founder-bio-p{color:var(--grey);font-size:0.93rem;line-height:1.85;font-weight:300;margin-bottom:12px}
+.founder-bio-p strong{color:var(--white);font-weight:600}
+
+.founder-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
+.f-stat{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px 12px;text-align:center;
+  transition:border-color 0.3s,transform 0.3s;
+}
+.f-stat:hover{border-color:rgba(255,208,0,0.25);transform:translateY(-3px)}
+.f-stat-num{
+  font-family:var(--font-display);font-size:1.8rem;font-weight:800;
+  color:var(--gold);line-height:1;margin-bottom:6px;
+}
+.f-stat-lbl{font-size:0.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:0.06em;line-height:1.4}
+
+/* Trait pills */
+.founder-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.founder-pill{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 18px;border-radius:100px;
+  font-size:0.82rem;font-weight:600;
+  border:1px solid rgba(255,208,0,0.2);
+  background:rgba(255,208,0,0.06);
+  color:var(--white);transition:all 0.3s;
+}
+.founder-pill:hover{background:rgba(255,208,0,0.14);border-color:rgba(255,208,0,0.4)}
+.founder-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* ========================================
+   VALUES — GIANT WORD
+   ======================================== */
+#values{background:var(--bg2);overflow:hidden}
+.values-word-section{
+  padding:80px 5% 0;
+  text-align:center;position:relative;
+}
+.values-word{
+  font-family:var(--font-display);
+  font-size:clamp(5.5rem,20vw,20rem);
+  font-weight:800;letter-spacing:-0.04em;
+  line-height:0.85;user-select:none;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(255,208,0,0.12);
+  display:inline-block;position:relative;
+}
+.values-word-center-icon{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:clamp(70px,9vw,120px);
+  filter:drop-shadow(0 0 36px rgba(255,208,0,0.7));
+  animation:floatGlow 6s ease-in-out infinite;
+  z-index:2;
+}
+.values-cards-section{
+  padding:0 5% 100px;
+}
+.values-section-header{
+  max-width:1400px;margin:0 auto;
+  padding-top:56px;padding-bottom:48px;
+}
+.values-grid{
+  max-width:1400px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;
+}
+.value-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius2);padding:32px;
+  position:relative;overflow:hidden;
+  transition:transform 0.35s,border-color 0.35s,box-shadow 0.35s;
+}
+.value-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%,rgba(255,208,0,0.07) 0%,transparent 60%);
+  opacity:0;transition:opacity 0.35s;
+}
+.value-card:hover{transform:translateY(-6px);border-color:rgba(255,208,0,0.25);box-shadow:0 24px 60px rgba(0,0,0,0.5)}
+.value-card:hover::before{opacity:1}
+.value-sym{
+  font-family:var(--font-display);font-size:1.5rem;
+  font-weight:800;color:var(--gold);margin-bottom:14px;
+}
+.value-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:rgba(255,208,0,0.1);border:1px solid rgba(255,208,0,0.2);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px;
+  transition:transform 0.3s,background 0.3s;
+}
+.value-icon svg{width:22px;height:22px;color:var(--gold)}
+.value-card:hover .value-icon{transform:scale(1.1);background:rgba(255,208,0,0.18)}
+.value-card h4{font-family:var(--font-display);font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.value-card p{color:var(--grey);font-size:0.86rem;line-height:1.7;font-weight:300}
+
+/* ========================================
+   4 STAGE PROCESS
+   ======================================== */
+#process{padding:100px 5%;background:var(--bg)}
+.process-inner{max-width:1400px;margin:0 auto}
+.process-list{
+  display:flex;flex-direction:column;gap:24px;
+  margin-top:64px;position:relative;
+}
+/* Vertical connector line */
+.process-list::before{
+  content:'';position:absolute;
+  left:44px;top:72px;bottom:72px;
+  width:1px;
+  background:linear-gradient(to bottom,var(--gold),rgba(255,208,0,0.08));
+}
+.p-step{
+  display:grid;grid-template-columns:88px 1fr;gap:32px;align-items:start;
+  position:relative;
+}
+.p-num{
+  width:88px;height:88px;border-radius:50%;
+  background:var(--card);border:1px solid rgba(255,208,0,0.2);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;z-index:1;position:relative;
+  transition:all 0.35s;
+}
+.p-num span{
+  font-family:var(--font-display);font-weight:800;
+  font-size:1.5rem;color:rgba(255,208,0,0.5);
+  transition:color 0.3s;
+}
+.p-step:hover .p-num{
+  background:var(--gold);border-color:var(--gold);
+  box-shadow:0 0 32px rgba(255,208,0,0.4);
+}
+.p-step:hover .p-num span{color:#000}
+.p-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:32px 36px;
+  transition:border-color 0.35s,transform 0.35s;
+  margin-top:16px;
+}
+.p-step:hover .p-card{border-color:rgba(255,208,0,0.2);transform:translateX(8px)}
+.p-tag{
+  font-size:0.7rem;font-weight:700;color:var(--gold);
+  letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;
+}
+.p-card h3{
+  font-family:var(--font-display);font-size:1.15rem;
+  font-weight:700;margin-bottom:12px;
+}
+.p-card p{color:var(--grey);font-size:0.88rem;line-height:1.8;font-weight:300}
+
+/* ========================================
+   SQUAD / TEAM
+   ======================================== */
+#squad{padding:100px 5%;background:var(--bg2)}
+.squad-inner{max-width:1400px;margin:0 auto}
+.squad-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  margin-top:56px;
+}
+.squad-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius2);overflow:hidden;
+  transition:transform 0.35s,border-color 0.35s,box-shadow 0.35s;
+}
+.squad-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(255,208,0,0.25);
+  box-shadow:0 24px 60px rgba(0,0,0,0.6);
+}
+.squad-photo{
+  aspect-ratio:3/4;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.squad-photo-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,#0f0c00,#1a1400,#0d0d0d);
+  transition:transform 0.4s;
+}
+.squad-card:hover .squad-photo-bg{transform:scale(1.04)}
+.squad-photo-glow{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 80% at 50% 30%,rgba(255,208,0,0.09),transparent 65%);
+}
+.squad-initials{
+  position:relative;z-index:1;
+  font-family:var(--font-display);font-weight:800;
+  font-size:4rem;color:var(--gold);
+  opacity:0.7;letter-spacing:-0.02em;
+}
+/* Role label on top of card */
+.squad-role-banner{
+  position:absolute;top:20px;left:20px;z-index:2;
+  background:rgba(255,208,0,0.1);
+  border:1px solid rgba(255,208,0,0.3);
+  padding:5px 14px;border-radius:100px;
+  font-size:0.7rem;font-weight:700;
+  color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;
+}
+.squad-body{padding:24px}
+.squad-body h4{
+  font-family:var(--font-display);font-weight:700;
+  font-size:1.05rem;margin-bottom:6px;
+}
+.squad-body .role{
+  font-size:0.8rem;color:var(--gold);
+  font-weight:600;letter-spacing:0.04em;margin-bottom:10px;
+}
+.squad-body p{
+  color:var(--grey);font-size:0.82rem;
+  line-height:1.65;font-weight:300;
+}
+.squad-socials{
+  display:flex;gap:8px;margin-top:16px;
+}
+.squad-social{
+  width:34px;height:34px;border-radius:10px;
+  border:1px solid rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--grey);font-size:0.78rem;text-decoration:none;
+  transition:all 0.3s;
+}
+.squad-social:hover{background:var(--gold);border-color:var(--gold);color:#000}
+
+/* ========================================
+   AGENCY SNAPS
+   ======================================== */
+#agency-snaps{padding:100px 5%;background:var(--bg)}
+.snaps-inner{max-width:1400px;margin:0 auto}
+.snaps-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  grid-template-rows:220px 220px;
+  gap:16px;
+  margin-top:48px;
+}
+.snap{
+  border-radius:var(--radius);overflow:hidden;
+  position:relative;cursor:pointer;
+  transition:transform 0.3s;
+}
+.snap:hover{transform:scale(1.02)}
+.snap:hover .snap-overlay{opacity:1}
+/* Various snap positions */
+.snap-1{grid-column:1;grid-row:1/3}
+.snap-2{grid-column:2;grid-row:1}
+.snap-3{grid-column:3;grid-row:1}
+.snap-4{grid-column:2;grid-row:2}
+.snap-5{grid-column:3;grid-row:2}
+.snap-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,#111,#1a1a00);
+  transition:transform 0.4s;
+}
+.snap:hover .snap-bg{transform:scale(1.05)}
+.snap-bg::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at var(--cx,50%) var(--cy,50%),rgba(255,208,0,0.12),transparent 65%);
+}
+.snap-bg::after{
+  content:'';position:absolute;inset:0;
+  background:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E") center/cover;
+  opacity:0.4;
+}
+/* Each snap has a unique glow position */
+.snap-1 .snap-bg{--cx:40%;--cy:30%}
+.snap-2 .snap-bg{--cx:60%;--cy:70%}
+.snap-3 .snap-bg{--cx:30%;--cy:40%}
+.snap-4 .snap-bg{--cx:70%;--cy:30%}
+.snap-5 .snap-bg{--cx:50%;--cy:60%}
+/* Snap label + icon */
+.snap-content{
+  position:absolute;inset:0;z-index:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;
+}
+.snap-icon{opacity:0.45;display:flex;align-items:center;justify-content:center}
+.snap-icon svg{width:36px;height:36px;color:rgba(255,255,255,0.7)}
+.snap-1 .snap-icon svg{width:52px;height:52px}
+.snap-label{
+  font-family:var(--font-display);font-weight:700;
+  font-size:0.78rem;color:rgba(255,255,255,0.3);
+  letter-spacing:0.08em;text-transform:uppercase;
+}
+.snap-overlay{
+  position:absolute;inset:0;z-index:2;
+  background:rgba(255,208,0,0.08);
+  border:1px solid rgba(255,208,0,0.2);
+  border-radius:var(--radius);
+  opacity:0;transition:opacity 0.35s;
+  display:flex;align-items:center;justify-content:center;
+}
+.snap-overlay-icon{filter:drop-shadow(0 0 16px rgba(255,208,0,0.6));display:flex;align-items:center;justify-content:center}
+.snap-overlay-icon svg{width:32px;height:32px;color:var(--gold)}
+
+/* ========================================
+   FAQ
+   ======================================== */
+#faq{padding:100px 5%;background:var(--bg2)}
+.faq-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.faq-left .section-label{margin-bottom:12px}
+.faq-h2{
+  font-family:var(--font-display);
+  font-size:clamp(1.8rem,3.5vw,3rem);
+  font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:16px;
+}
+.faq-h2 span{color:var(--gold)}
+.faq-sub{color:var(--grey);font-size:0.9rem;line-height:1.75;font-weight:300;margin-bottom:32px}
+.faq-contact-nudge{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 24px;border-radius:100px;
+  border:1px solid rgba(255,208,0,0.2);
+  background:rgba(255,208,0,0.05);
+  font-size:0.85rem;color:var(--gold);font-weight:600;
+  text-decoration:none;transition:all 0.3s;
+}
+.faq-contact-nudge:hover{background:var(--gold);color:#000}
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;transition:border-color 0.3s;
+}
+.faq-item.open{border-color:rgba(255,208,0,0.25)}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 24px;cursor:pointer;
+  font-weight:600;font-size:0.9rem;transition:color 0.3s;
+}
+.faq-item.open .faq-q{color:var(--gold)}
+.faq-icon{
+  width:28px;height:28px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;color:var(--grey);font-size:1rem;
+  transition:all 0.3s;
+}
+.faq-item.open .faq-icon{background:var(--gold);border-color:var(--gold);color:#000;transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease,padding 0.3s;
+  color:var(--grey);font-size:0.87rem;line-height:1.8;font-weight:300;
+}
+.faq-item.open .faq-a{max-height:260px;padding:0 24px 20px}
+
+/* ========================================
+   LET'S TALK CTA
+   ======================================== */
+#lets-talk{
+  padding:120px 5%;
+  background:linear-gradient(135deg,#0a0800,#070600,#0d0d0d);
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+#lets-talk::before{
+  content:'';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:80vw;height:80vw;max-width:900px;max-height:900px;
+  background:radial-gradient(circle,rgba(255,208,0,0.09) 0%,transparent 65%);
+  border-radius:50%;pointer-events:none;
+}
+/* Decorative grid */
+#lets-talk::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,208,0,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,208,0,0.025) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 0%,transparent 100%);
+  pointer-events:none;
+}
+.lt-inner{
+  max-width:800px;margin:0 auto;
+  position:relative;z-index:2;
+}
+.lt-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,208,0,0.1);border:1px solid rgba(255,208,0,0.25);
+  padding:6px 18px;border-radius:100px;
+  font-size:0.75rem;font-weight:700;color:var(--gold);
+  letter-spacing:0.1em;text-transform:uppercase;margin-bottom:28px;
+}
+.lt-eyebrow::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+.lt-headline{
+  font-family:var(--font-display);
+  font-size:clamp(3.5rem,8vw,7rem);
+  font-weight:800;line-height:0.9;letter-spacing:-0.04em;margin-bottom:24px;
+}
+.lt-headline span{color:var(--gold);display:block}
+.lt-sub{
+  color:var(--grey);font-size:1rem;
+  line-height:1.75;font-weight:300;
+  max-width:540px;margin:0 auto 40px;
+}
+.lt-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+/* Trust badges below buttons */
+.lt-trust{
+  display:flex;align-items:center;justify-content:center;
+  gap:28px;margin-top:40px;flex-wrap:wrap;
+}
+.lt-trust-item{
+  display:flex;align-items:center;gap:8px;
+  font-size:0.78rem;color:var(--grey);font-weight:400;
+}
+.lt-trust-item::before{
+  content:'✓';color:var(--gold);font-weight:800;font-size:0.7rem;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media(max-width:1024px){
+  .ac-inner,.founder-inner,.faq-inner{grid-template-columns:1fr;gap:48px}
+  .squad-grid{grid-template-columns:1fr 1fr}
+  .snaps-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:180px 180px 180px;
+  }
+  .snap-1{grid-column:1/3;grid-row:1}
+  .snap-2{grid-column:1;grid-row:2}
+  .snap-3{grid-column:2;grid-row:2}
+  .snap-4{grid-column:1;grid-row:3}
+  .snap-5{grid-column:2;grid-row:3}
+}
+@media(max-width:700px){
+  .squad-grid{grid-template-columns:1fr}
+  .founder-stats{grid-template-columns:repeat(3,1fr)}
+  .values-grid{grid-template-columns:1fr}
+  .snaps-grid{grid-template-columns:1fr;grid-template-rows:none}
+  .snap-1,.snap-2,.snap-3,.snap-4,.snap-5{grid-column:1;grid-row:auto;height:200px}
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+
+<!-- ── NAVBAR ── -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/images/mwanga-logo.png" alt="Mwanga Digital Solutions"/>
+    <div class="nav-logo-text">Mwanga Digital<span>Solutions</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="has-dropdown">
+      <a href="services.html">Services <span class="drop-arrow"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></span></a>
+      <div class="nav-dropdown">
+        <div class="nd-split">
+          <div class="nd-left">
+            <a href="services.html#web-design" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 7h20M7 11.5l2.5 2.5-2.5 2.5M13 16h4"/></svg></span><span><span class="nd-title">Website Design & Development</span><span class="nd-sub">Corporate, e-commerce & custom sites</span></span></a>
+            <a href="services.html#mobile-apps" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="3"/><path d="M7 6h10M7 18h10M11 20h2"/></svg></span><span><span class="nd-title">Mobile App Development</span><span class="nd-sub">Android, iOS & cross-platform apps</span></span></a>
+            <a href="services.html#systems" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 7V5M12 7V5M15 7V5M9 19v-2M12 19v-2M15 19v-2M5 9H7M5 12H7M5 15H7M17 9h2M17 12h2M17 15h2"/></svg></span><span><span class="nd-title">System Design & Development</span><span class="nd-sub">CRM, school, inventory & custom systems</span></span></a>
+            <a href="services.html#seo" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m21 21-4.35-4.35M7 13l2-2 2 2 2-3"/></svg></span><span><span class="nd-title">SEO Optimization</span><span class="nd-sub">Rankings, visibility & local SEO</span></span></a>
+            <a href="services.html#redesign" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></span><span><span class="nd-title">Website Redesign</span><span class="nd-sub">Modern UI/UX & performance upgrades</span></span></a>
+            <a href="services.html#maintenance" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5.25 3.8 10.74 9 12 5.2-1.26 9-6.75 9-12V6Z"/><path d="m9 12 2 2 4-4"/></svg></span><span><span class="nd-title">Maintenance & Support</span><span class="nd-sub">Security, updates & ongoing care</span></span></a>
+            <a href="services.html#graphics" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></span><span><span class="nd-title">Graphics Design</span><span class="nd-sub">Branding, logos & visual identity</span></span></a>
+          </div>
+          <div class="nd-right">
+            <div class="nd-r-eyebrow">Our Expertise</div>
+            <div class="nd-r-heading">Digital<br/>Solutions<br/>That <span>Deliver</span></div>
+            <p class="nd-r-sub">7 specialist services. One focused team. Zero compromise.</p>
+            <div class="nd-r-divider"></div>
+            <div class="nd-r-stats">
+              <div class="nd-r-stat"><span class="nd-r-stat-n">50+</span><span class="nd-r-stat-l">Projects delivered</span></div>
+              <div class="nd-r-stat"><span class="nd-r-stat-n">98%</span><span class="nd-r-stat-l">Client satisfaction</span></div>
+              <div class="nd-r-stat"><span class="nd-r-stat-n">5yr</span><span class="nd-r-stat-l">Industry experience</span></div>
+            </div>
+            <a href="services.html" class="nd-r-cta">View All Services →</a>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Talk</a>
+  <div class="nav-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div id="mobile-menu">
+  <button class="mob-close" onclick="closeMobileMenu()">✕</button>
+  <a href="index.html" class="mob-link" onclick="closeMobileMenu()">Home</a>
+  <a href="about.html" class="mob-link" onclick="closeMobileMenu()">About</a>
+  <a href="services.html" class="mob-link">Services</a>
+  <div class="mob-dropdown">
+    <a href="services.html#web-design" onclick="closeMobileMenu()">Web Design & Development</a>
+    <a href="services.html#mobile-apps" onclick="closeMobileMenu()">Mobile App Development</a>
+    <a href="services.html#systems" onclick="closeMobileMenu()">System Development</a>
+    <a href="services.html#seo" onclick="closeMobileMenu()">SEO Optimization</a>
+    <a href="services.html#redesign" onclick="closeMobileMenu()">Website Redesign</a>
+    <a href="services.html#maintenance" onclick="closeMobileMenu()">Maintenance & Support</a>
+    <a href="services.html#graphics" onclick="closeMobileMenu()">Graphics Design</a>
+  </div>
+  <a href="projects.html" class="mob-link" onclick="closeMobileMenu()">Projects</a>
+  <a href="blog.html" class="mob-link" onclick="closeMobileMenu()">Blog</a>
+  <a href="contact.html" class="mob-link" onclick="closeMobileMenu()">Contact</a>
+  <a href="contact.html" class="btn-primary" onclick="closeMobileMenu()">Let's Talk →</a>
+</div>
+
+<!-- ══════════════════════════════════════
+     1. HERO
+     ══════════════════════════════════════ -->
+<section id="about-hero">
+  <div class="hero-photo"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content-wrap">
+    <div class="hero-tag">About Us</div>
+    <h1 class="hero-h1 fade-up">
+      Hey There!<br/>Welcome to
+      <span class="gold-line">Mwanga Digital Solutions!</span>
+    </h1>
+    <p class="hero-sub fade-up">We're a forward-thinking digital agency dedicated to helping businesses grow through innovative, scalable, and results-driven technology solutions.</p>
+    <div class="scroll-hint fade-up"><div class="scroll-line"></div>Scroll to explore</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     2. ABOUT OUR COMPANY
+     ══════════════════════════════════════ -->
+<section id="about-company">
+  <div class="ac-inner">
+    <!-- Left -->
+    <div class="ac-left fade-up">
+      <div class="section-label">About our Company</div>
+      <h2 class="ac-h2">We Build <span>Digital Solutions</span><br/>That Make a Difference</h2>
+      <p class="ac-p">Let's get acquainted. We're not your average digital marketing agency — we're a team of <strong>passionate problem-solvers who love all things digital</strong>. At <strong>Mwanga Digital Solutions</strong>, we're on a mission to make your online dreams come true.</p>
+      <p class="ac-p">Just to give you a brief: there's a bunch of <strong>tech-savvy minds, design enthusiasts, and strategic thinkers</strong> who make the digital world a more exciting place for businesses, non-profits, and everyone in between.</p>
+      <p class="ac-p">Our journey is <strong>fun, exciting, and stunningly awesome</strong> — and we'd love for you to be part of it.</p>
+    </div>
+    <!-- Right: Accordion -->
+    <div class="ac-right fade-up">
+      <div class="acc-wrap">
+        <div class="acc-item open">
+          <div class="acc-head" onclick="toggleAcc(this)">
+            <span class="acc-label">Our History</span>
+            <span class="acc-btn">+</span>
+          </div>
+          <div class="acc-body">Mwanga Digital Solutions was founded with one clear purpose — to bridge the gap between businesses and technology in Africa and beyond. Starting with a small but passionate team, we have grown into a full-service digital agency trusted by clients across multiple industries. Every project we take on is driven by a genuine desire to create lasting impact.</div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head" onclick="toggleAcc(this)">
+            <span class="acc-label">What Makes Us Different</span>
+            <span class="acc-btn">+</span>
+          </div>
+          <div class="acc-body">
+            <ul>
+              <li>Business-first mindset — we build solutions aligned with your actual goals</li>
+              <li>Modern, future-ready technology stacks for every project</li>
+              <li>Transparent communication and collaboration throughout</li>
+              <li>End-to-end support from strategy all the way to launch and beyond</li>
+              <li>Every solution is custom-built, never templated</li>
+            </ul>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head" onclick="toggleAcc(this)">
+            <span class="acc-label">Our Team</span>
+            <span class="acc-btn">+</span>
+          </div>
+          <div class="acc-body">Our diverse team brings together developers, designers, SEO specialists, and digital strategists with expertise across multiple industries. We're collaborative, creative, and committed to delivering excellence on every project — no matter the size or complexity.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     3. BRANDS WE'VE WORKED WITH
+     ══════════════════════════════════════ -->
+<div id="brands-worked">
+  <div class="brands-inner">
+    <h2 class="brands-title fade-up">Brands we have <span>worked with</span></h2>
+    <div class="brands-track-wrap">
+      <div class="brands-track">
+        <div class="brand-pill"><span class="brand-dot"></span>Startups</div>
+        <div class="brand-pill"><span class="brand-dot"></span>NGOs & Nonprofits</div>
+        <div class="brand-pill"><span class="brand-dot"></span>Schools & Colleges</div>
+        <div class="brand-pill"><span class="brand-dot"></span>Healthcare Clinics</div>
+        <div class="brand-pill"><span class="brand-dot"></span>E-commerce Stores</div>
+        <div class="brand-pill"><span class="brand-dot"></span>Professional Services</div>
+        <div class="brand-pill"><span class="brand-dot"></span>Creative Agencies</div>
+        <div class="brand-pill"><span class="brand-dot"></span>Real Estate Firms</div>
+        <!-- duplicate -->
+        <div class="brand-pill"><span class="brand-dot"></span>Startups</div>
+        <div class="brand-pill"><span class="brand-dot"></span>NGOs & Nonprofits</div>
+        <div class="brand-pill"><span class="brand-dot"></span>Schools & Colleges</div>
+        <div class="brand-pill"><span class="brand-dot"></span>Healthcare Clinics</div>
+        <div class="brand-pill"><span class="brand-dot"></span>E-commerce Stores</div>
+        <div class="brand-pill"><span class="brand-dot"></span>Professional Services</div>
+        <div class="brand-pill"><span class="brand-dot"></span>Creative Agencies</div>
+        <div class="brand-pill"><span class="brand-dot"></span>Real Estate Firms</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     4. MEET THE FOUNDER
+     ══════════════════════════════════════ -->
+<section id="founder">
+  <div class="founder-inner">
+    <!-- Left: Photo card -->
+    <div class="founder-photo-side fade-up">
+      <div class="founder-photo-card">
+        <div class="founder-avatar-big">MD</div>
+        <div class="founder-name-bg">
+          <div class="founder-name-big">Mwanga<span>Director</span></div>
+          <span class="founder-role-tag">Founder & CEO</span>
+        </div>
+      </div>
+    </div>
+    <!-- Right: Bio -->
+    <div class="founder-bio-side fade-up">
+      <div class="section-label">Meet The Founder</div>
+      <h2 class="founder-bio-h2">The Heart of <span>Mwanga Digital</span></h2>
+      <p class="founder-bio-p">With a decade of <strong>digital marketing expertise</strong>, our founder's passion for innovation and dedication to clients have guided our journey. His <strong>strategic vision, client-centered approach, and knack for creative solutions</strong> shape our commitments to excellence.</p>
+      <p class="founder-bio-p">He started Mwanga Digital Solutions with a belief that <strong>every business deserves world-class digital solutions</strong> — regardless of size. That belief still drives everything we do today.</p>
+      <div class="founder-stats">
+        <div class="f-stat">
+          <div class="f-stat-num" data-target="3" data-suffix="+">3+</div>
+          <div class="f-stat-lbl">Agency Years</div>
+        </div>
+        <div class="f-stat">
+          <div class="f-stat-num" data-target="50" data-suffix="+">50+</div>
+          <div class="f-stat-lbl">Happy Clients</div>
+        </div>
+        <div class="f-stat">
+          <div class="f-stat-num" data-target="100" data-suffix="+">100+</div>
+          <div class="f-stat-lbl">Projects Done</div>
+        </div>
+      </div>
+      <div class="founder-pills">
+        <div class="founder-pill"><span class="founder-pill-dot"></span>Strategic</div>
+        <div class="founder-pill"><span class="founder-pill-dot"></span>Values-Driven</div>
+        <div class="founder-pill"><span class="founder-pill-dot"></span>Passionate</div>
+        <div class="founder-pill"><span class="founder-pill-dot"></span>Innovative</div>
+        <div class="founder-pill"><span class="founder-pill-dot"></span>Client-First</div>
+        <div class="founder-pill"><span class="founder-pill-dot"></span>Results-Focused</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     5. VALUES
+     ══════════════════════════════════════ -->
+<section id="values">
+  <div class="values-word-section">
+    <div class="values-word">
+      VALUES
+      <img class="values-word-center-icon" src="assets/images/mwanga-logo.png" alt=""/>
+    </div>
+  </div>
+  <div class="values-cards-section">
+    <div class="values-section-header">
+      <div class="section-header centered fade-up" style="margin-bottom:0">
+        <div class="section-label">What We Stand For</div>
+        <h2 class="section-h2">Our Core <span style="color:var(--gold)">Values</span></h2>
+        <p class="section-sub">The principles that guide every decision we make and every solution we build for our clients.</p>
+      </div>
+    </div>
+    <div class="values-grid">
+      <div class="value-card fade-up">
+        <div class="value-sym">✦</div>
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></svg></div>
+        <h4>Innovation</h4>
+        <p>We embrace creativity and emerging technologies to deliver modern and future-ready solutions that keep your business ahead of the curve.</p>
+      </div>
+      <div class="value-card fade-up">
+        <div class="value-sym">✦</div>
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <h4>Excellence</h4>
+        <p>We are committed to high-quality service delivery, professionalism, and meticulous attention to detail in every project we undertake.</p>
+      </div>
+      <div class="value-card fade-up">
+        <div class="value-sym">✦</div>
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5.25 3.8 10.74 9 12 5.2-1.26 9-6.75 9-12V6Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h4>Integrity</h4>
+        <p>We build trust through transparency, accountability, and honest partnerships. We do what we say, and we say what we mean.</p>
+      </div>
+      <div class="value-card fade-up">
+        <div class="value-sym">✦</div>
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Client-Centered</h4>
+        <p>We prioritize understanding our clients' needs and delivering solutions that create measurable, real-world business impact.</p>
+      </div>
+      <div class="value-card fade-up">
+        <div class="value-sym">✦</div>
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <h4>Growth & Impact</h4>
+        <p>We believe technology should create opportunities, solve problems, and accelerate business growth — not just look good on screen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     6. OUR 4 STAGE PROCESS
+     ══════════════════════════════════════ -->
+<section id="process">
+  <div class="process-inner">
+    <div class="section-header fade-up">
+      <div class="section-label">How We Work</div>
+      <h2 class="section-h2">Our <span style="color:var(--gold)">4 Stage</span> Process</h2>
+      <p class="section-sub">A proven approach that ensures every project is delivered on time, on budget, and beyond expectations.</p>
+    </div>
+    <div class="process-list">
+
+      <div class="p-step fade-up">
+        <div class="p-num"><span>01</span></div>
+        <div class="p-card">
+          <div class="p-tag">Stage 01</div>
+          <h3>Discovery Phase</h3>
+          <p>We deep-dive into your business — understanding your goals, target audience, market landscape, and the specific challenges you face. We ask the right questions, study your competition, and identify digital opportunities that can drive real results. This phase shapes everything that follows.</p>
+        </div>
+      </div>
+
+      <div class="p-step fade-up">
+        <div class="p-num"><span>02</span></div>
+        <div class="p-card">
+          <div class="p-tag">Stage 02</div>
+          <h3>Strategy Development</h3>
+          <p>Armed with discovery insights, we craft a tailored digital strategy and project roadmap. This includes wireframes, architecture planning, technology selection, content strategy, timelines, and clear milestones — so you always know exactly what's being built and when.</p>
+        </div>
+      </div>
+
+      <div class="p-step fade-up">
+        <div class="p-num"><span>03</span></div>
+        <div class="p-card">
+          <div class="p-tag">Stage 03</div>
+          <h3>Implementation and Execution</h3>
+          <p>Our team brings the strategy to life — designing stunning interfaces and building robust, scalable solutions using modern technologies and best practices. We work in focused sprints, sharing progress updates regularly so you remain informed and in full control throughout the build phase.</p>
+        </div>
+      </div>
+
+      <div class="p-step fade-up">
+        <div class="p-num"><span>04</span></div>
+        <div class="p-card">
+          <div class="p-tag">Stage 04</div>
+          <h3>Monitoring and Optimization</h3>
+          <p>After rigorous testing across all devices and browsers, we launch your solution and manage the complete go-live process. Post-launch, we monitor performance, gather data, and continuously optimize — ensuring your digital presence keeps growing and delivering results long after launch.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     7. SAY HELLO TO OUR SQUAD
+     ══════════════════════════════════════ -->
+<section id="squad">
+  <div class="squad-inner">
+    <div class="section-header centered fade-up">
+      <div class="section-label">The People</div>
+      <h2 class="section-h2">Say Hello to Our <span style="color:var(--gold)">Squad!</span></h2>
+      <p class="section-sub">Meet the passionate professionals behind every solution we build — creative, strategic, and dedicated to your success.</p>
+    </div>
+    <div class="squad-grid">
+      <div class="squad-card fade-up">
+        <div class="squad-photo">
+          <div class="squad-photo-bg"></div>
+          <div class="squad-photo-glow"></div>
+          <span class="squad-initials">MD</span>
+          <div class="squad-role-banner">Engaging</div>
+        </div>
+        <div class="squad-body">
+          <h4>Mwanga Director</h4>
+          <div class="role">Founder & CEO</div>
+          <p>Visionary leader driving Mwanga's mission to empower businesses through smart digital solutions and long-term partnerships.</p>
+          <div class="squad-socials">
+            <a href="#" class="squad-social">in</a>
+            <a href="#" class="squad-social">𝕏</a>
+          </div>
+        </div>
+      </div>
+      <div class="squad-card fade-up">
+        <div class="squad-photo">
+          <div class="squad-photo-bg"></div>
+          <div class="squad-photo-glow"></div>
+          <span class="squad-initials">LD</span>
+          <div class="squad-role-banner">Strategic</div>
+        </div>
+        <div class="squad-body">
+          <h4>Lead Developer</h4>
+          <div class="role">Full-Stack Engineer</div>
+          <p>Expert in building scalable web and mobile applications, custom systems, and high-performance digital platforms.</p>
+          <div class="squad-socials">
+            <a href="#" class="squad-social">gh</a>
+            <a href="#" class="squad-social">in</a>
+          </div>
+        </div>
+      </div>
+      <div class="squad-card fade-up">
+        <div class="squad-photo">
+          <div class="squad-photo-bg"></div>
+          <div class="squad-photo-glow"></div>
+          <span class="squad-initials">UX</span>
+          <div class="squad-role-banner">Visionary</div>
+        </div>
+        <div class="squad-body">
+          <h4>Design Lead</h4>
+          <div class="role">UI/UX Designer</div>
+          <p>Creating beautiful, intuitive interfaces that delight users and drive business goals through thoughtful design thinking.</p>
+          <div class="squad-socials">
+            <a href="#" class="squad-social">be</a>
+            <a href="#" class="squad-social">in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     8. AGENCY SNAPS
+     ══════════════════════════════════════ -->
+<section id="agency-snaps">
+  <div class="snaps-inner">
+    <div class="section-header fade-up">
+      <div class="section-label">Behind the Scenes</div>
+      <h2 class="section-h2">Our Agency <span style="color:var(--gold)">Snaps</span></h2>
+      <p class="section-sub">A glimpse into the workspace, the people, and the energy that powers every project we deliver.</p>
+    </div>
+    <div class="snaps-grid">
+      <div class="snap snap-1">
+        <div class="snap-bg"></div>
+        <div class="snap-content"><span class="snap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></svg></span><span class="snap-label">Our Office</span></div>
+        <div class="snap-overlay"><span class="snap-overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span></div>
+      </div>
+      <div class="snap snap-2">
+        <div class="snap-bg"></div>
+        <div class="snap-content"><span class="snap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m14 0H4m16 0 1.28 2.55A1 1 0 0 1 20.4 20H3.6a1 1 0 0 1-.88-1.45L4 16"/></svg></span><span class="snap-label">Deep in Code</span></div>
+        <div class="snap-overlay"><span class="snap-overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span></div>
+      </div>
+      <div class="snap snap-3">
+        <div class="snap-bg"></div>
+        <div class="snap-content"><span class="snap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></span><span class="snap-label">Design Session</span></div>
+        <div class="snap-overlay"><span class="snap-overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span></div>
+      </div>
+      <div class="snap snap-4">
+        <div class="snap-bg"></div>
+        <div class="snap-content"><span class="snap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="snap-label">Client Meeting</span></div>
+        <div class="snap-overlay"><span class="snap-overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span></div>
+      </div>
+      <div class="snap snap-5">
+        <div class="snap-bg"></div>
+        <div class="snap-content"><span class="snap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span><span class="snap-label">Launch Day!</span></div>
+        <div class="snap-overlay"><span class="snap-overlay-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     9. FAQ
+     ══════════════════════════════════════ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="faq-left fade-up">
+      <div class="section-label">FAQ</div>
+      <h2 class="faq-h2">Got Questions?<br/><span>We've Got Answers!</span></h2>
+      <p class="faq-sub">Can't find what you're looking for? Reach out to us directly and we'll get back to you within 24 hours.</p>
+      <a href="contact.html" class="faq-contact-nudge">Ask Us Directly →</a>
+    </div>
+    <div class="faq-list fade-up">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaqItem(this)">
+          <span>What is BIO and how can it help elevate my online presence?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">At Mwanga Digital Solutions, we build tailored digital solutions that include professional website design, SEO optimization, and social media presence strategies. We help your business rank higher, look more professional, and reach more potential customers online — all designed to deliver measurable growth.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaqItem(this)">
+          <span>How long does it typically take to deliver a project?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Project timelines depend on scope and complexity. A standard website typically takes 2–4 weeks, a custom system 4–8 weeks, and a mobile app 6–12 weeks. We always provide a clear timeline during the strategy phase so you know exactly when to expect delivery.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaqItem(this)">
+          <span>Can I request changes after the project is delivered?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Absolutely. We offer post-launch support and maintenance packages that cover content updates, feature additions, bug fixes, and technical improvements. Your success after launch is just as important to us as the delivery itself.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaqItem(this)">
+          <span>Does Mwanga Digital offer discounts for small businesses?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Yes! We believe every business deserves access to quality digital solutions. We offer flexible pricing packages designed to suit startups, small businesses, NGOs, and enterprises alike. Contact us for a free consultation and we'll tailor a package that fits your budget and goals.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaqItem(this)">
+          <span>What industries do you specialize in?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">We work across a wide range of industries including businesses & startups, NGOs & nonprofits, educational institutions, healthcare, e-commerce, real estate, hospitality, and creative brands. Our team adapts its approach to meet the unique needs of each sector.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     10. LET'S TALK
+     ══════════════════════════════════════ -->
+<section id="lets-talk">
+  <div class="lt-inner fade-up">
+    <div class="lt-eyebrow">Ready to Get Started?</div>
+    <h2 class="lt-headline">Let's<br/><span>Talk!</span></h2>
+    <p class="lt-sub">Ready to transform your business digitally? We'd love to hear about your project — let's build something extraordinary together.</p>
+    <div class="lt-btns">
+      <a href="contact.html" class="btn-primary">Start a Project →</a>
+      <a href="services.html" class="btn-secondary">Explore Services</a>
+    </div>
+    <div class="lt-trust">
+      <div class="lt-trust-item">Free Consultation</div>
+      <div class="lt-trust-item">Fast Turnaround</div>
+      <div class="lt-trust-item">98% Client Satisfaction</div>
+      <div class="lt-trust-item">Ongoing Support</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="assets/images/mwanga-logo.png" alt="Mwanga Digital Solutions"/>
+        <div class="footer-logo-text">Mwanga Digital<span>Solutions</span></div>
+      </div>
+      <p class="footer-desc">Empowering businesses with smart, scalable, and user-focused digital solutions that drive real growth.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" title="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" class="social-btn" title="Twitter/X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></a>
+        <a href="#" class="social-btn" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="social-btn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" class="social-btn" title="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.12 6.12l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">Web Development</a></li>
+        <li><a href="services.html">Mobile Apps</a></li>
+        <li><a href="services.html">System Design</a></li>
+        <li><a href="services.html">SEO Optimization</a></li>
+        <li><a href="services.html">Graphics Design</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@mwangadigital.com">info@mwangadigital.com</a></li>
+        <li><a href="tel:+254700000000">+254 700 000 000</a></li>
+        <li><a href="#">Nairobi, Kenya</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2024 <span>Mwanga Digital Solutions</span>. All rights reserved.</p>
+    <p class="footer-copy">Designed & Built with ❤️ in Kenya</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+function toggleAcc(header){
+  const item = header.closest('.acc-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.acc-item.open').forEach(i=>{ if(i!==item) i.classList.remove('open'); });
+  item.classList.toggle('open',!isOpen);
+}
+function toggleFaqItem(header){
+  const item = header.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>{ if(i!==item) i.classList.remove('open'); });
+  item.classList.toggle('open',!isOpen);
+}
+/* Animate founder stats */
+document.querySelectorAll('.f-stat-num[data-target]').forEach(el=>{
+  const obs = new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){
+      let start=0, target=parseInt(el.dataset.target), suffix=el.dataset.suffix||'';
+      const step=ts=>{ if(!start)start=ts; const p=Math.min((ts-start)/1600,1); el.textContent=Math.floor(p*target)+suffix; if(p<1)requestAnimationFrame(step); else el.textContent=target+suffix; };
+      requestAnimationFrame(step);
+      obs.unobserve(el);
+    }
+  },{threshold:0.5});
+  obs.observe(el);
+});
+</script>
+</body>
+</html>

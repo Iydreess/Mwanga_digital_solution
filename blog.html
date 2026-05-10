@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog | Mwanga Digital Solutions</title>
+<meta name="description" content="Insights, tips, and stories from the Mwanga Digital Solutions team — covering web design, mobile apps, SEO, branding, and digital strategy in Kenya."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/global.css"/>
+<style>
+
+/* ========================================
+   HERO
+   ======================================== */
+#blog-hero{
+  min-height:52vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  padding:140px 5% 80px;
+  position:relative;overflow:hidden;
+  background:var(--bg);
+}
+.bh-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%,rgba(255,208,0,0.09) 0%,transparent 65%),
+    linear-gradient(to bottom,rgba(5,5,5,0) 0%,rgba(5,5,5,1) 100%);
+  pointer-events:none;
+}
+.bh-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 0%,black 0%,transparent 100%);
+  pointer-events:none;
+}
+.bh-inner{position:relative;z-index:2;max-width:680px}
+.bh-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,208,0,0.1);border:1px solid rgba(255,208,0,0.3);
+  padding:6px 18px;border-radius:100px;
+  font-size:0.75rem;font-weight:700;color:var(--gold);
+  letter-spacing:0.12em;text-transform:uppercase;margin-bottom:24px;
+}
+.bh-tag::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+.bh-h1{
+  font-family:var(--font-display);
+  font-size:clamp(3rem,7vw,5.5rem);
+  font-weight:800;line-height:1.0;
+  letter-spacing:-0.03em;
+}
+.bh-h1 span{color:var(--gold)}
+.bh-sub{
+  color:var(--grey);font-size:0.98rem;line-height:1.8;
+  font-weight:300;margin-top:20px;max-width:500px;
+  margin-left:auto;margin-right:auto;
+}
+
+/* ========================================
+   BLOG MAIN
+   ======================================== */
+#blog-main{
+  padding:80px 5% 100px;
+  background:var(--bg);
+}
+.blog-wrap{max-width:1400px;margin:0 auto}
+
+/* Filter tabs */
+.blog-filter-tabs{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:56px;
+}
+.blog-tab{
+  padding:9px 22px;border-radius:100px;
+  border:1px solid var(--border);
+  background:transparent;color:var(--grey);
+  font-family:var(--font-body);font-size:0.84rem;font-weight:600;
+  cursor:pointer;transition:all 0.25s;
+  letter-spacing:0.02em;
+}
+.blog-tab:hover{border-color:rgba(255,208,0,0.3);color:var(--white)}
+.blog-tab.active{background:var(--gold);border-color:var(--gold);color:#000}
+
+/* ========================================
+   FEATURED ARTICLE
+   ======================================== */
+.blog-featured{
+  display:grid;grid-template-columns:1.1fr 1fr;
+  background:var(--card);border:1px solid var(--border);border-radius:28px;
+  overflow:hidden;margin-bottom:32px;
+  transition:border-color 0.3s,box-shadow 0.4s;
+  cursor:pointer;
+}
+.blog-featured:hover{
+  border-color:rgba(255,208,0,0.2);
+  box-shadow:0 32px 80px rgba(0,0,0,0.5);
+}
+.bf-visual{
+  position:relative;overflow:hidden;min-height:360px;
+  background:linear-gradient(135deg,#0d0b00,#0a0800);
+  display:flex;align-items:center;justify-content:center;
+}
+.bf-visual::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 40% 50%,rgba(255,208,0,0.15) 0%,transparent 60%);
+}
+.bf-icon{position:relative;z-index:1;display:flex;align-items:center;justify-content:center}
+.bf-icon svg{width:48px;height:48px;color:var(--gold)}
+.bf-visual-text{
+  position:absolute;bottom:24px;left:24px;
+  display:flex;align-items:center;gap:8px;
+  background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);
+  border:1px solid var(--border);border-radius:100px;
+  padding:6px 16px;font-size:0.75rem;color:var(--grey);font-weight:500;
+  z-index:2;
+}
+.bf-visual-text::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+
+.bf-content{padding:48px 40px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.bf-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.bf-cat{
+  background:rgba(255,208,0,0.08);border:1px solid rgba(255,208,0,0.2);
+  padding:4px 14px;border-radius:100px;
+  font-size:0.72rem;font-weight:700;color:var(--gold);
+  letter-spacing:0.1em;text-transform:uppercase;
+}
+.bf-date{font-size:0.78rem;color:var(--grey)}
+.bf-read{font-size:0.78rem;color:var(--grey)}
+.bf-title{
+  font-family:var(--font-display);font-size:1.9rem;font-weight:800;
+  line-height:1.2;
+}
+.bf-excerpt{color:var(--grey);font-size:0.9rem;line-height:1.75;font-weight:300}
+.bf-author{display:flex;align-items:center;gap:12px;margin-top:8px}
+.bf-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:800;font-size:0.85rem;color:#000;flex-shrink:0;
+}
+.bf-author-name{font-weight:600;font-size:0.88rem}
+.bf-author-role{font-size:0.76rem;color:var(--grey)}
+.bf-read-link{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--gold);font-weight:600;font-size:0.88rem;
+  text-decoration:none;margin-top:4px;
+  transition:gap 0.3s;
+}
+.bf-read-link:hover{gap:14px}
+
+/* ========================================
+   BLOG GRID
+   ======================================== */
+.blog-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.blog-card{
+  background:var(--card);border:1px solid var(--border);border-radius:24px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform 0.4s,border-color 0.4s,box-shadow 0.4s;
+  cursor:pointer;
+}
+.blog-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,208,0,0.2);
+  box-shadow:0 24px 60px rgba(0,0,0,0.5);
+}
+.bc-visual{
+  height:180px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.bc-visual::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(20,20,20,0.6),transparent);
+}
+/* Category color variants */
+.bcv-web{background:linear-gradient(135deg,#080d05,#0a1408)}
+.bcv-web .bc-bg{background:radial-gradient(circle at 30% 50%,rgba(255,208,0,0.18) 0%,transparent 60%)}
+.bcv-app{background:linear-gradient(135deg,#050810,#080510)}
+.bcv-app .bc-bg{background:radial-gradient(circle at 70% 30%,rgba(100,180,255,0.15) 0%,transparent 60%)}
+.bcv-seo{background:linear-gradient(135deg,#080508,#0a060d)}
+.bcv-seo .bc-bg{background:radial-gradient(circle at 40% 50%,rgba(180,100,255,0.12) 0%,transparent 60%)}
+.bcv-brand{background:linear-gradient(135deg,#0d0508,#100308)}
+.bcv-brand .bc-bg{background:radial-gradient(circle at 60% 40%,rgba(255,100,120,0.12) 0%,transparent 60%)}
+.bcv-biz{background:linear-gradient(135deg,#050d0d,#030808)}
+.bcv-biz .bc-bg{background:radial-gradient(circle at 50% 60%,rgba(0,220,180,0.1) 0%,transparent 60%)}
+.bcv-tips{background:linear-gradient(135deg,#0d0800,#0a0500)}
+.bcv-tips .bc-bg{background:radial-gradient(circle at 50% 50%,rgba(255,180,0,0.15) 0%,transparent 60%)}
+
+.bc-bg{position:absolute;inset:0}
+.bc-icon{position:relative;z-index:1;display:flex;align-items:center;justify-content:center}
+.bc-icon svg{width:30px;height:30px;color:var(--gold)}
+.bc-cat-pill{
+  position:absolute;top:12px;left:12px;
+  background:rgba(0,0,0,0.65);backdrop-filter:blur(8px);
+  border:1px solid var(--border);border-radius:100px;
+  padding:4px 12px;font-size:0.7rem;font-weight:700;
+  color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;
+  z-index:2;
+}
+.bc-read-time{
+  position:absolute;bottom:10px;right:12px;
+  font-size:0.7rem;color:var(--grey);z-index:2;
+}
+
+.bc-body{padding:24px;flex:1;display:flex;flex-direction:column;gap:10px}
+.bc-meta{display:flex;align-items:center;gap:10px}
+.bc-date{font-size:0.76rem;color:var(--grey)}
+.bc-dot{width:3px;height:3px;border-radius:50%;background:var(--grey2)}
+.bc-author-tag{font-size:0.76rem;color:var(--grey)}
+.bc-title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:1rem;line-height:1.3;
+  transition:color 0.3s;
+}
+.blog-card:hover .bc-title{color:var(--gold)}
+.bc-excerpt{color:var(--grey);font-size:0.84rem;line-height:1.65;font-weight:300;flex:1}
+.bc-footer{
+  padding:16px 24px;border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.bc-author{display:flex;align-items:center;gap:8px}
+.bc-av{
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.62rem;font-weight:800;color:#000;font-family:var(--font-display);
+}
+.bc-name{font-size:0.78rem;font-weight:600}
+.bc-arrow{
+  width:28px;height:28px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.7rem;color:var(--grey);transition:all 0.3s;
+}
+.blog-card:hover .bc-arrow{background:var(--gold);border-color:var(--gold);color:#000;transform:rotate(45deg)}
+
+/* ========================================
+   NEWSLETTER STRIP
+   ======================================== */
+#blog-newsletter{
+  padding:80px 5%;
+  background:var(--bg2);
+}
+.newsletter-inner{
+  max-width:700px;margin:0 auto;
+  text-align:center;
+}
+.nl-icon{margin-bottom:16px;display:flex;align-items:center;justify-content:center}
+.nl-icon svg{width:36px;height:36px;color:var(--gold)}
+.nl-h2{
+  font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);
+  font-weight:800;margin-bottom:12px;
+}
+.nl-h2 span{color:var(--gold)}
+.nl-sub{color:var(--grey);font-size:0.95rem;line-height:1.7;margin-bottom:36px;font-weight:300}
+.nl-form{
+  display:flex;gap:12px;max-width:520px;margin:0 auto;
+}
+.nl-input{
+  flex:1;background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);border-radius:100px;
+  padding:14px 24px;color:var(--white);
+  font-family:var(--font-body);font-size:0.9rem;
+  outline:none;transition:border-color 0.3s;
+}
+.nl-input::placeholder{color:rgba(255,255,255,0.3)}
+.nl-input:focus{border-color:rgba(255,208,0,0.4)}
+.nl-btn{
+  background:var(--gold);color:#000;
+  font-family:var(--font-display);font-weight:700;font-size:0.88rem;
+  padding:14px 28px;border-radius:100px;border:none;cursor:pointer;
+  transition:transform 0.2s,box-shadow 0.3s;white-space:nowrap;
+  box-shadow:0 0 20px rgba(255,208,0,0.35);
+}
+.nl-btn:hover{transform:translateY(-2px);box-shadow:0 0 32px rgba(255,208,0,0.55)}
+.nl-note{font-size:0.78rem;color:var(--grey2);margin-top:16px}
+
+/* ========================================
+   BLOG SIDEBAR TOPICS
+   ======================================== */
+#blog-topics{
+  padding:64px 5%;
+  background:var(--bg);
+  border-top:1px solid var(--border);
+}
+.topics-wrap{max-width:1400px;margin:0 auto}
+.topics-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:40px;
+}
+.topic-card{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:20px 16px;text-align:center;cursor:pointer;
+  transition:all 0.3s;
+}
+.topic-card:hover{border-color:rgba(255,208,0,0.3);background:rgba(255,208,0,0.03);transform:translateY(-3px)}
+.topic-icon{margin-bottom:10px;display:flex;align-items:center;justify-content:center}
+.topic-icon svg{width:24px;height:24px;color:var(--gold)}
+.topic-name{font-family:var(--font-display);font-weight:700;font-size:0.82rem}
+.topic-count{font-size:0.72rem;color:var(--grey);margin-top:4px}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media(max-width:1100px){
+  .blog-grid{grid-template-columns:repeat(2,1fr)}
+  .topics-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:900px){
+  .blog-featured{grid-template-columns:1fr}
+  .bf-visual{min-height:220px}
+  .bf-content{padding:32px 28px}
+  .topics-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:600px){
+  .blog-grid{grid-template-columns:1fr}
+  .topics-grid{grid-template-columns:repeat(2,1fr)}
+  .nl-form{flex-direction:column}
+  .nl-btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/images/mwanga-logo.png" alt="Mwanga Digital Solutions Logo"/>
+    <div class="nav-logo-text">Mwanga Digital<span>Solutions</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="has-dropdown">
+      <a href="services.html">Services <span class="drop-arrow"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></span></a>
+      <div class="nav-dropdown">
+        <div class="nd-split">
+          <div class="nd-left">
+            <a href="services.html#web-design" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 7h20M7 11.5l2.5 2.5-2.5 2.5M13 16h4"/></svg></span><span><span class="nd-title">Website Design & Development</span><span class="nd-sub">Corporate, e-commerce & custom sites</span></span></a>
+            <a href="services.html#mobile-apps" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="3"/><path d="M7 6h10M7 18h10M11 20h2"/></svg></span><span><span class="nd-title">Mobile App Development</span><span class="nd-sub">Android, iOS & cross-platform apps</span></span></a>
+            <a href="services.html#systems" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 7V5M12 7V5M15 7V5M9 19v-2M12 19v-2M15 19v-2M5 9H7M5 12H7M5 15H7M17 9h2M17 12h2M17 15h2"/></svg></span><span><span class="nd-title">System Design & Development</span><span class="nd-sub">CRM, school, inventory & custom systems</span></span></a>
+            <a href="services.html#seo" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m21 21-4.35-4.35M7 13l2-2 2 2 2-3"/></svg></span><span><span class="nd-title">SEO Optimization</span><span class="nd-sub">Rankings, visibility & local SEO</span></span></a>
+            <a href="services.html#redesign" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></span><span><span class="nd-title">Website Redesign</span><span class="nd-sub">Modern UI/UX & performance upgrades</span></span></a>
+            <a href="services.html#maintenance" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5.25 3.8 10.74 9 12 5.2-1.26 9-6.75 9-12V6Z"/><path d="m9 12 2 2 4-4"/></svg></span><span><span class="nd-title">Maintenance & Support</span><span class="nd-sub">Security, updates & ongoing care</span></span></a>
+            <a href="services.html#graphics" class="nd-item"><span class="nd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></span><span><span class="nd-title">Graphics Design</span><span class="nd-sub">Branding, logos & visual identity</span></span></a>
+          </div>
+          <div class="nd-right">
+            <div class="nd-r-eyebrow">Our Expertise</div>
+            <div class="nd-r-heading">Digital<br/>Solutions<br/>That <span>Deliver</span></div>
+            <p class="nd-r-sub">7 specialist services. One focused team. Zero compromise.</p>
+            <div class="nd-r-divider"></div>
+            <div class="nd-r-stats">
+              <div class="nd-r-stat"><span class="nd-r-stat-n">50+</span><span class="nd-r-stat-l">Projects delivered</span></div>
+              <div class="nd-r-stat"><span class="nd-r-stat-n">98%</span><span class="nd-r-stat-l">Client satisfaction</span></div>
+              <div class="nd-r-stat"><span class="nd-r-stat-n">5yr</span><span class="nd-r-stat-l">Industry experience</span></div>
+            </div>
+            <a href="services.html" class="nd-r-cta">View All Services →</a>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Talk</a>
+  <div class="nav-hamburger" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu">
+  <button class="mob-close" onclick="closeMobileMenu()">✕</button>
+  <a href="index.html" class="mob-link" onclick="closeMobileMenu()">Home</a>
+  <a href="about.html" class="mob-link" onclick="closeMobileMenu()">About</a>
+  <a href="services.html" class="mob-link">Services</a>
+  <div class="mob-dropdown">
+    <a href="services.html#web-design" onclick="closeMobileMenu()">Web Design & Development</a>
+    <a href="services.html#mobile-apps" onclick="closeMobileMenu()">Mobile App Development</a>
+    <a href="services.html#systems" onclick="closeMobileMenu()">System Development</a>
+    <a href="services.html#seo" onclick="closeMobileMenu()">SEO Optimization</a>
+    <a href="services.html#redesign" onclick="closeMobileMenu()">Website Redesign</a>
+    <a href="services.html#maintenance" onclick="closeMobileMenu()">Maintenance & Support</a>
+    <a href="services.html#graphics" onclick="closeMobileMenu()">Graphics Design</a>
+  </div>
+  <a href="projects.html" class="mob-link" onclick="closeMobileMenu()">Projects</a>
+  <a href="blog.html" class="mob-link" onclick="closeMobileMenu()">Blog</a>
+  <a href="contact.html" class="mob-link" onclick="closeMobileMenu()">Contact</a>
+  <a href="contact.html" class="btn-primary" onclick="closeMobileMenu()">Let's Talk →</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="blog-hero">
+  <div class="bh-bg"></div>
+  <div class="bh-grid"></div>
+  <div class="bh-inner fade-up">
+    <div class="bh-tag">Knowledge Hub</div>
+    <h1 class="bh-h1">Ideas &<br/><span>Insights</span></h1>
+    <p class="bh-sub">Digital tips, design thinking, business growth hacks, and stories from the Mwanga Digital team. Written for African businesses ready to grow online.</p>
+  </div>
+</section>
+
+<!-- ===== BLOG MAIN ===== -->
+<section id="blog-main">
+  <div class="blog-wrap">
+
+    <div class="blog-filter-tabs fade-up">
+      <button class="blog-tab active" onclick="filterBlog('all', this)">All Posts</button>
+      <button class="blog-tab" onclick="filterBlog('web', this)">Web Design</button>
+      <button class="blog-tab" onclick="filterBlog('app', this)">Mobile</button>
+      <button class="blog-tab" onclick="filterBlog('seo', this)">SEO</button>
+      <button class="blog-tab" onclick="filterBlog('brand', this)">Branding</button>
+      <button class="blog-tab" onclick="filterBlog('biz', this)">Business</button>
+      <button class="blog-tab" onclick="filterBlog('tips', this)">Tips & Guides</button>
+    </div>
+
+    <!-- Featured Post -->
+    <div class="blog-featured fade-up" data-cat="web">
+      <div class="bf-visual">
+        <div class="bc-bg bcv-web" style="position:absolute;inset:0"></div>
+        <div class="bf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 7h20M7 11.5l2.5 2.5-2.5 2.5M13 16h4"/></svg></div>
+        <div class="bf-visual-text">Featured Article</div>
+      </div>
+      <div class="bf-content">
+        <div class="bf-meta">
+          <span class="bf-cat">Web Design</span>
+          <span class="bf-date">May 2, 2025</span>
+          <span class="bf-dot" style="width:3px;height:3px;border-radius:50%;background:var(--grey2)"></span>
+          <span class="bf-read">8 min read</span>
+        </div>
+        <h2 class="bf-title">Why Every Kenyan Business Needs a Professional Website in 2025</h2>
+        <p class="bf-excerpt">Your website is your most powerful sales tool — open 24/7, reaching every corner of Kenya and beyond. Yet most businesses still rely on social media alone. Here's what they're missing, and how a professional website changes everything.</p>
+        <div class="bf-author">
+          <div class="bf-avatar">MD</div>
+          <div>
+            <div class="bf-author-name">Mwanga Digital Team</div>
+            <div class="bf-author-role">Digital Strategy · May 2025</div>
+          </div>
+        </div>
+        <a href="#" class="bf-read-link">Read Full Article →</a>
+      </div>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="blog-grid" id="blog-grid">
+
+      <div class="blog-card fade-up" data-cat="seo">
+        <div class="bc-visual bcv-seo">
+          <div class="bc-bg bcv-seo"></div>
+          <div class="bc-cat-pill">SEO</div>
+          <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+          <div class="bc-read-time">6 min read</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta">
+            <span class="bc-date">Apr 18, 2025</span>
+            <div class="bc-dot"></div>
+            <span class="bc-author-tag">Mwanga Team</span>
+          </div>
+          <h3 class="bc-title">10 SEO Mistakes Kenyan Businesses Make (And How to Fix Them)</h3>
+          <p class="bc-excerpt">From ignoring local SEO to skipping mobile optimisation — these are the most common mistakes we see when auditing business websites, and exactly how to fix each one.</p>
+        </div>
+        <div class="bc-footer">
+          <div class="bc-author">
+            <div class="bc-av">MD</div>
+            <span class="bc-name">Mwanga Digital</span>
+          </div>
+          <div class="bc-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="app">
+        <div class="bc-visual bcv-app">
+          <div class="bc-bg bcv-app"></div>
+          <div class="bc-cat-pill">Mobile</div>
+          <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="3"/><path d="M7 6h10M7 18h10M11 20h2"/></svg></div>
+          <div class="bc-read-time">5 min read</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta">
+            <span class="bc-date">Apr 10, 2025</span>
+            <div class="bc-dot"></div>
+            <span class="bc-author-tag">Mwanga Team</span>
+          </div>
+          <h3 class="bc-title">Native vs Cross-Platform: Which App Should Your Business Build?</h3>
+          <p class="bc-excerpt">Flutter, React Native, or full native development? We break down the real-world differences in cost, performance, and timeline to help you make the right choice.</p>
+        </div>
+        <div class="bc-footer">
+          <div class="bc-author">
+            <div class="bc-av">MD</div>
+            <span class="bc-name">Mwanga Digital</span>
+          </div>
+          <div class="bc-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="biz">
+        <div class="bc-visual bcv-biz">
+          <div class="bc-bg bcv-biz"></div>
+          <div class="bc-cat-pill">Business</div>
+          <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <div class="bc-read-time">7 min read</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta">
+            <span class="bc-date">Mar 25, 2025</span>
+            <div class="bc-dot"></div>
+            <span class="bc-author-tag">Mwanga Team</span>
+          </div>
+          <h3 class="bc-title">How to Choose the Right Digital Agency in Kenya: A Practical Guide</h3>
+          <p class="bc-excerpt">Not all agencies are the same. Here are 7 questions you must ask before signing any contract — plus the red flags that should send you running.</p>
+        </div>
+        <div class="bc-footer">
+          <div class="bc-author">
+            <div class="bc-av">MD</div>
+            <span class="bc-name">Mwanga Digital</span>
+          </div>
+          <div class="bc-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="brand">
+        <div class="bc-visual bcv-brand">
+          <div class="bc-bg bcv-brand"></div>
+          <div class="bc-cat-pill">Branding</div>
+          <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></div>
+          <div class="bc-read-time">4 min read</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta">
+            <span class="bc-date">Mar 12, 2025</span>
+            <div class="bc-dot"></div>
+            <span class="bc-author-tag">Mwanga Team</span>
+          </div>
+          <h3 class="bc-title">Brand Identity vs Logo Design: Understanding the Difference</h3>
+          <p class="bc-excerpt">Many businesses pay for a logo and call it branding. True brand identity goes much deeper — and the difference is worth understanding before you invest.</p>
+        </div>
+        <div class="bc-footer">
+          <div class="bc-author">
+            <div class="bc-av">MD</div>
+            <span class="bc-name">Mwanga Digital</span>
+          </div>
+          <div class="bc-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="tips">
+        <div class="bc-visual bcv-tips">
+          <div class="bc-bg bcv-tips"></div>
+          <div class="bc-cat-pill">Tips</div>
+          <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></svg></div>
+          <div class="bc-read-time">5 min read</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta">
+            <span class="bc-date">Feb 28, 2025</span>
+            <div class="bc-dot"></div>
+            <span class="bc-author-tag">Mwanga Team</span>
+          </div>
+          <h3 class="bc-title">5 Website Mistakes That Are Costing You Customers Right Now</h3>
+          <p class="bc-excerpt">Slow load times, no mobile version, missing calls-to-action — these silent killers are driving visitors away from your website before you even get a chance to impress them.</p>
+        </div>
+        <div class="bc-footer">
+          <div class="bc-author">
+            <div class="bc-av">MD</div>
+            <span class="bc-name">Mwanga Digital</span>
+          </div>
+          <div class="bc-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="web">
+        <div class="bc-visual bcv-web">
+          <div class="bc-bg bcv-web"></div>
+          <div class="bc-cat-pill">Web Design</div>
+          <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4M19 17v4M3 5h4M17 19h4"/></svg></div>
+          <div class="bc-read-time">6 min read</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta">
+            <span class="bc-date">Feb 14, 2025</span>
+            <div class="bc-dot"></div>
+            <span class="bc-author-tag">Mwanga Team</span>
+          </div>
+          <h3 class="bc-title">UI/UX Design Trends That Will Define Kenyan Websites in 2025</h3>
+          <p class="bc-excerpt">Dark mode, micro-animations, bold typography, and AI-powered personalisation — the design trends shaping the web this year and how to apply them to your business site.</p>
+        </div>
+        <div class="bc-footer">
+          <div class="bc-author">
+            <div class="bc-av">MD</div>
+            <span class="bc-name">Mwanga Digital</span>
+          </div>
+          <div class="bc-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="biz">
+        <div class="bc-visual bcv-biz">
+          <div class="bc-bg bcv-biz"></div>
+          <div class="bc-cat-pill">Business</div>
+          <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <div class="bc-read-time">8 min read</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta">
+            <span class="bc-date">Jan 30, 2025</span>
+            <div class="bc-dot"></div>
+            <span class="bc-author-tag">Mwanga Team</span>
+          </div>
+          <h3 class="bc-title">How We Built a Mobile App That Reached 5,000 NGO Beneficiaries</h3>
+          <p class="bc-excerpt">A behind-the-scenes look at one of our proudest projects — building an offline-capable beneficiary management app for a Nairobi NGO, and the lessons we learned along the way.</p>
+        </div>
+        <div class="bc-footer">
+          <div class="bc-author">
+            <div class="bc-av">MD</div>
+            <span class="bc-name">Mwanga Digital</span>
+          </div>
+          <div class="bc-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="seo">
+        <div class="bc-visual bcv-seo">
+          <div class="bc-bg bcv-seo"></div>
+          <div class="bc-cat-pill">SEO</div>
+          <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="bc-read-time">5 min read</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta">
+            <span class="bc-date">Jan 15, 2025</span>
+            <div class="bc-dot"></div>
+            <span class="bc-author-tag">Mwanga Team</span>
+          </div>
+          <h3 class="bc-title">Google My Business: The Free Tool That Could Double Your Local Leads</h3>
+          <p class="bc-excerpt">Most businesses in Kenya haven't fully set up their Google Business Profile. Here's a step-by-step guide to optimising it and showing up when local customers search.</p>
+        </div>
+        <div class="bc-footer">
+          <div class="bc-author">
+            <div class="bc-av">MD</div>
+            <span class="bc-name">Mwanga Digital</span>
+          </div>
+          <div class="bc-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="tips">
+        <div class="bc-visual bcv-tips">
+          <div class="bc-bg bcv-tips"></div>
+          <div class="bc-cat-pill">Tips</div>
+          <div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="bc-read-time">4 min read</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta">
+            <span class="bc-date">Jan 5, 2025</span>
+            <div class="bc-dot"></div>
+            <span class="bc-author-tag">Mwanga Team</span>
+          </div>
+          <h3 class="bc-title">Website Security Checklist for Kenyan Businesses in 2025</h3>
+          <p class="bc-excerpt">Cyber threats are rising across East Africa. We break down the essential security measures every business website should have — from SSL to backups to user access controls.</p>
+        </div>
+        <div class="bc-footer">
+          <div class="bc-author">
+            <div class="bc-av">MD</div>
+            <span class="bc-name">Mwanga Digital</span>
+          </div>
+          <div class="bc-arrow">→</div>
+        </div>
+      </div>
+
+    </div><!-- /blog-grid -->
+
+  </div>
+</section>
+
+<!-- ===== TOPICS ===== -->
+<section id="blog-topics">
+  <div class="topics-wrap">
+    <div class="section-header centered fade-up">
+      <div class="section-label">Browse by Topic</div>
+      <h2 class="section-h2">Explore Our <span style="color:var(--gold)">Categories</span></h2>
+    </div>
+    <div class="topics-grid">
+      <div class="topic-card fade-up" onclick="filterBlog('web', document.querySelector('[onclick*=\'web\']'))">
+        <div class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 7h20M7 11.5l2.5 2.5-2.5 2.5M13 16h4"/></svg></div>
+        <div class="topic-name">Web Design</div>
+        <div class="topic-count">8 articles</div>
+      </div>
+      <div class="topic-card fade-up" onclick="filterBlog('app', document.querySelector('[onclick*=\'app\']'))">
+        <div class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="3"/><path d="M7 6h10M7 18h10M11 20h2"/></svg></div>
+        <div class="topic-name">Mobile Apps</div>
+        <div class="topic-count">5 articles</div>
+      </div>
+      <div class="topic-card fade-up" onclick="filterBlog('seo', document.querySelector('[onclick*=\'seo\']'))">
+        <div class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <div class="topic-name">SEO</div>
+        <div class="topic-count">7 articles</div>
+      </div>
+      <div class="topic-card fade-up" onclick="filterBlog('brand', document.querySelector('[onclick*=\'brand\']'))">
+        <div class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></div>
+        <div class="topic-name">Branding</div>
+        <div class="topic-count">4 articles</div>
+      </div>
+      <div class="topic-card fade-up" onclick="filterBlog('biz', document.querySelector('[onclick*=\'biz\']'))">
+        <div class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <div class="topic-name">Business</div>
+        <div class="topic-count">6 articles</div>
+      </div>
+      <div class="topic-card fade-up" onclick="filterBlog('tips', document.querySelector('[onclick*=\'tips\']'))">
+        <div class="topic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></svg></div>
+        <div class="topic-name">Tips & Guides</div>
+        <div class="topic-count">9 articles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section id="blog-newsletter">
+  <div class="newsletter-inner fade-up">
+    <div class="nl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+    <h2 class="nl-h2">Stay in the <span>Loop</span></h2>
+    <p class="nl-sub">Get the latest digital tips, project spotlights, and industry insights delivered straight to your inbox — no spam, just value.</p>
+    <form class="nl-form" onsubmit="handleNewsletter(event)">
+      <input type="email" class="nl-input" placeholder="your@email.com" required/>
+      <button type="submit" class="nl-btn" id="nl-btn">Subscribe →</button>
+    </form>
+    <p class="nl-note">Join 500+ Kenyan business owners. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="assets/images/mwanga-logo.png" alt="Mwanga Digital Solutions"/>
+        <div class="footer-logo-text">Mwanga Digital<span>Solutions</span></div>
+      </div>
+      <p class="footer-desc">Empowering businesses with smart, scalable, and user-focused digital solutions that drive real growth.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" title="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" class="social-btn" title="Twitter/X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></a>
+        <a href="#" class="social-btn" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="social-btn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" class="social-btn" title="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.12 6.12l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#web-design">Web Development</a></li>
+        <li><a href="services.html#mobile-apps">Mobile Apps</a></li>
+        <li><a href="services.html#systems">System Design</a></li>
+        <li><a href="services.html#seo">SEO Optimization</a></li>
+        <li><a href="services.html#graphics">Graphics Design</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@mwangadigital.com">info@mwangadigital.com</a></li>
+        <li><a href="tel:+254700000000">+254 700 000 000</a></li>
+        <li><a href="#">Nairobi, Kenya</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2024 <span>Mwanga Digital Solutions</span>. All rights reserved.</p>
+    <p class="footer-copy">Designed & Built with ❤️ in Kenya</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+function filterBlog(cat, btn){
+  document.querySelectorAll('.blog-tab').forEach(t => t.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+
+  const cards = document.querySelectorAll('#blog-grid .blog-card, .blog-featured');
+  cards.forEach(card => {
+    const cardCat = card.dataset.cat;
+    if(cat === 'all' || cardCat === cat){
+      card.style.display = '';
+      card.classList.remove('visible');
+      setTimeout(() => card.classList.add('visible'), 50);
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function handleNewsletter(e){
+  e.preventDefault();
+  const btn = document.getElementById('nl-btn');
+  btn.textContent = 'Subscribing…';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = '✓ Subscribed!';
+    btn.style.background = '#22c55e';
+    setTimeout(() => {
+      btn.textContent = 'Subscribe →';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 3500);
+  }, 1400);
+}
+</script>
+</body>
+</html>
