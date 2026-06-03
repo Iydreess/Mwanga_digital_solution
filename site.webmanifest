@@ -1,0 +1,19 @@
+{
+  "name": "Mwanga Digital Solutions",
+  "short_name": "Mwanga Digital",
+  "description": "Top digital agency in Nairobi, Kenya — websites, mobile apps, custom systems & SEO.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#050505",
+  "theme_color": "#FFD000",
+  "lang": "en-KE",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "assets/images/favicon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

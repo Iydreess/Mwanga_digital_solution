@@ -3,11 +3,34 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Services | Mwanga Digital Solutions</title>
-<meta name="description" content="Explore Mwanga Digital Solutions' full range of services — web design, mobile apps, system development, SEO, graphics design and more."/>
+<title>Digital Services | Web Design, Mobile Apps & More — Mwanga Digital Solutions Nairobi</title>
+<meta name="description" content="Mwanga Digital Solutions offers 7 specialist digital services in Nairobi, Kenya: website design & development, mobile app development, custom system design, SEO optimization, website redesign, maintenance & support, and graphics design."/>
+<meta name="keywords" content="web design nairobi, mobile app development kenya, SEO services nairobi, custom software kenya, website redesign nairobi, graphics design kenya, digital services nairobi, system development kenya, app developer nairobi, ERP kenya, CRM kenya"/>
+<meta name="author" content="Mwanga Digital Solutions"/>
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<meta name="theme-color" content="#FFD000"/>
+<link rel="canonical" href="https://mwangadigital.com/services.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Mwanga Digital Solutions"/>
+<meta property="og:url" content="https://mwangadigital.com/services.html"/>
+<meta property="og:title" content="Digital Services | Web Design, Mobile Apps & More — Mwanga Digital Nairobi"/>
+<meta property="og:description" content="7 specialist digital services in Nairobi, Kenya: web design, mobile apps, custom systems, SEO, redesign, maintenance & graphics. Zero compromise on quality."/>
+<meta property="og:image" content="https://mwangadigital.com/assets/images/mwanga-logo.png"/>
+<meta property="og:image:alt" content="Mwanga Digital Solutions Services — Nairobi Kenya"/>
+<meta property="og:locale" content="en_KE"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Digital Services | Mwanga Digital Solutions Nairobi Kenya"/>
+<meta name="twitter:description" content="Web design, mobile apps, custom systems, SEO & more from Nairobi's trusted digital agency. 7 specialist services, one focused team."/>
+<meta name="twitter:image" content="https://mwangadigital.com/assets/images/mwanga-logo.png"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://mwangadigital.com/services.html","url":"https://mwangadigital.com/services.html","name":"Digital Services — Mwanga Digital Solutions","description":"7 specialist digital services in Nairobi, Kenya: web design, mobile apps, custom systems, SEO, redesign, maintenance and graphics.","inLanguage":"en-KE","isPartOf":{"@id":"https://mwangadigital.com/#website"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mwangadigital.com"},{"@type":"ListItem","position":2,"name":"Services","item":"https://mwangadigital.com/services.html"}]}},{"@type":"Service","provider":{"@id":"https://mwangadigital.com/#organization"},"name":"Website Design & Development","description":"Modern, responsive websites for businesses, NGOs and e-commerce in Kenya","areaServed":"Kenya"},{"@type":"Service","provider":{"@id":"https://mwangadigital.com/#organization"},"name":"Mobile App Development","description":"Android, iOS and cross-platform mobile applications for Kenya businesses","areaServed":"Kenya"},{"@type":"Service","provider":{"@id":"https://mwangadigital.com/#organization"},"name":"System Design & Development","description":"Custom ERP, CRM, school management, booking and inventory systems","areaServed":"Kenya"},{"@type":"Service","provider":{"@id":"https://mwangadigital.com/#organization"},"name":"SEO Optimization","description":"Technical SEO, local SEO and content strategy for Kenya businesses","areaServed":"Kenya"},{"@type":"Service","provider":{"@id":"https://mwangadigital.com/#organization"},"name":"Website Redesign","description":"Modern UI/UX overhaul and performance upgrade for outdated websites","areaServed":"Kenya"},{"@type":"Service","provider":{"@id":"https://mwangadigital.com/#organization"},"name":"Maintenance & Support","description":"Ongoing security updates, backups, bug fixes and technical support","areaServed":"Kenya"},{"@type":"Service","provider":{"@id":"https://mwangadigital.com/#organization"},"name":"Graphics Design","description":"Brand identity, logos, social media graphics and marketing materials","areaServed":"Kenya"}]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="assets/images/favicon.png"/>
+<link rel="shortcut icon" type="image/png" href="assets/images/favicon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
 <link rel="stylesheet" href="assets/css/global.css"/>
 <style>
 
@@ -102,6 +125,7 @@
   content:'';position:absolute;inset:0;
   background:radial-gradient(circle at 0% 0%,rgba(255,208,0,0.06) 0%,transparent 55%);
   opacity:0;transition:opacity 0.4s;
+  pointer-events:none;
 }
 .sg-card:hover{
   border-color:rgba(255,208,0,0.28);
@@ -115,6 +139,7 @@
   background:linear-gradient(90deg,var(--gold),transparent);
   transform:scaleX(0);transform-origin:left;
   transition:transform 0.4s;
+  pointer-events:none;
 }
 .sg-card:hover::after{transform:scaleX(1)}
 
@@ -145,6 +170,12 @@
   flex:1;margin-bottom:28px;
 }
 .sg-learn{
+  /* button reset */
+  background:none;border:none;padding:0;
+  cursor:pointer;font-family:var(--font-body);
+  /* raise above ::before overlay */
+  position:relative;z-index:1;
+  /* layout & type */
   display:inline-flex;align-items:center;gap:6px;
   font-size:0.82rem;font-weight:700;
   color:var(--gold);text-decoration:none;
@@ -305,6 +336,112 @@
   .wu-grid{grid-template-columns:1fr}
   .lt-headline{font-size:clamp(3.5rem,12vw,6rem)}
 }
+
+/* ========================================
+   SERVICE MODAL
+   ======================================== */
+@keyframes svcFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes svcSlideIn{from{transform:translateY(32px) scale(0.95);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+#svc-modal-overlay{
+  display:none;
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(5,5,5,0.86);
+  backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;
+  padding:20px;
+  animation:svcFadeIn 0.25s ease forwards;
+}
+#svc-modal-overlay.svc-open{display:flex}
+.svc-modal{
+  background:#111;
+  border:1px solid rgba(255,208,0,0.2);
+  border-radius:20px;
+  max-width:640px;width:100%;
+  max-height:88vh;overflow-y:auto;
+  position:relative;
+  animation:svcSlideIn 0.32s cubic-bezier(0.22,1,0.36,1) forwards;
+  box-shadow:0 40px 100px rgba(0,0,0,0.8);
+  scrollbar-width:none;
+}
+.svc-modal::-webkit-scrollbar{display:none}
+.svc-modal-close{
+  position:absolute;top:16px;right:16px;z-index:3;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  color:#fff;font-size:0.95rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s,border-color 0.2s,color 0.2s;
+  font-family:inherit;padding:0;
+}
+.svc-modal-close:hover{background:rgba(255,208,0,0.15);border-color:rgba(255,208,0,0.5);color:#FFD000}
+.svc-modal-header{
+  padding:32px 32px 0;
+  display:flex;align-items:flex-start;gap:18px;
+}
+.svc-modal-icon-box{
+  width:58px;height:58px;border-radius:16px;
+  background:rgba(255,208,0,0.1);border:1px solid rgba(255,208,0,0.2);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.svc-modal-icon-box svg{width:26px;height:26px;color:#FFD000}
+.svc-modal-meta{flex:1;padding-top:2px}
+.svc-modal-num{
+  font-size:0.68rem;font-weight:800;color:#FFD000;
+  letter-spacing:0.12em;text-transform:uppercase;margin-bottom:5px;
+}
+.svc-modal-name{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:1.3rem;line-height:1.2;letter-spacing:-0.02em;color:#fff;
+}
+.svc-modal-tag{
+  display:block;margin-top:7px;
+  font-size:0.73rem;color:rgba(255,255,255,0.4);font-weight:400;
+}
+.svc-modal-body{padding:24px 32px 32px}
+.svc-modal-desc{
+  color:rgba(255,255,255,0.55);font-size:0.88rem;line-height:1.85;
+  font-weight:300;margin-bottom:24px;
+  padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.svc-modal-features-label{
+  font-size:0.68rem;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:rgba(255,255,255,0.28);
+  margin-bottom:12px;
+}
+.svc-modal-features{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:9px;margin-bottom:28px;
+}
+.svc-modal-feat{
+  display:flex;align-items:center;gap:9px;
+  font-size:0.83rem;color:#fff;font-weight:400;
+}
+.svc-modal-feat-check{
+  width:20px;height:20px;border-radius:6px;
+  background:rgba(255,208,0,0.1);border:1px solid rgba(255,208,0,0.15);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.svc-modal-feat-check svg{width:11px;height:11px;color:#FFD000;stroke-width:2.5}
+.svc-modal-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#FFD000;color:#000;
+  padding:13px 28px;border-radius:100px;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:0.86rem;
+  text-decoration:none;letter-spacing:0.03em;
+  transition:background 0.25s,box-shadow 0.25s,transform 0.25s;
+  box-shadow:0 0 28px rgba(255,208,0,0.28);
+}
+.svc-modal-cta:hover{background:#FFC000;box-shadow:0 0 48px rgba(255,208,0,0.55);transform:translateY(-2px)}
+@media(max-width:520px){
+  .svc-modal-header{padding:22px 20px 0;gap:14px}
+  .svc-modal-body{padding:18px 20px 24px}
+  .svc-modal-features{grid-template-columns:1fr}
+  .svc-modal-name{font-size:1.1rem}
+  .svc-modal-icon-box{width:48px;height:48px}
+}
 </style>
 </head>
 <body>
@@ -413,7 +550,7 @@
         <div class="sg-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 7h20M7 11.5l2.5 2.5-2.5 2.5M13 16h4"/></svg></div>
         <h3>Website Design &amp; Development</h3>
         <p>We create modern, responsive, fast, and user-friendly websites tailored to your business goals. From corporate sites and e-commerce platforms to NGO portals and custom web applications — every site we build is designed to convert visitors into customers.</p>
-        <a href="contact.html?service=web-design" class="sg-learn">Learn More <span class="sg-learn-arrow">→</span></a>
+        <button class="sg-learn" onclick="openSvcModal('web-design')">Learn More <span class="sg-learn-arrow">→</span></button>
       </div>
 
       <!-- 02 Mobile Apps -->
@@ -422,7 +559,7 @@
         <div class="sg-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="3"/><path d="M7 6h10M7 18h10M11 20h2"/></svg></div>
         <h3>Mobile App Development</h3>
         <p>We develop scalable and intuitive mobile applications for Android, iOS, and cross-platform environments. Our apps are built to improve accessibility, boost customer engagement, and streamline business operations on the go.</p>
-        <a href="contact.html?service=mobile-apps" class="sg-learn">Learn More <span class="sg-learn-arrow">→</span></a>
+        <button class="sg-learn" onclick="openSvcModal('mobile-apps')">Learn More <span class="sg-learn-arrow">→</span></button>
       </div>
 
       <!-- 03 System Design -->
@@ -431,7 +568,7 @@
         <div class="sg-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 7V5M12 7V5M15 7V5M9 19v-2M12 19v-2M15 19v-2M5 9H7M5 12H7M5 15H7M17 9h2M17 12h2M17 15h2"/></svg></div>
         <h3>System Design &amp; Development</h3>
         <p>We design and build custom digital systems that automate operations and streamline workflows. School management, inventory control, CRM platforms, booking systems, and more — built specifically for your business processes.</p>
-        <a href="contact.html?service=systems" class="sg-learn">Learn More <span class="sg-learn-arrow">→</span></a>
+        <button class="sg-learn" onclick="openSvcModal('systems')">Learn More <span class="sg-learn-arrow">→</span></button>
       </div>
 
       <!-- 04 SEO -->
@@ -440,7 +577,7 @@
         <div class="sg-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m21 21-4.35-4.35M7 13l2-2 2 2 2-3"/></svg></div>
         <h3>SEO Optimization</h3>
         <p>We help businesses improve online visibility and climb search rankings through technical SEO, on-page optimization, keyword research, content strategy, and local SEO. Get found by customers who are actively searching for what you offer.</p>
-        <a href="contact.html?service=seo" class="sg-learn">Learn More <span class="sg-learn-arrow">→</span></a>
+        <button class="sg-learn" onclick="openSvcModal('seo')">Learn More <span class="sg-learn-arrow">→</span></button>
       </div>
 
       <!-- 05 Redesign -->
@@ -449,7 +586,7 @@
         <div class="sg-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></div>
         <h3>Website Redesign</h3>
         <p>We transform outdated websites into modern, high-performing digital experiences. Improved UI/UX design, mobile responsiveness, page speed optimization, and brand modernization — giving your existing site a complete, results-driven overhaul.</p>
-        <a href="contact.html?service=redesign" class="sg-learn">Learn More <span class="sg-learn-arrow">→</span></a>
+        <button class="sg-learn" onclick="openSvcModal('redesign')">Learn More <span class="sg-learn-arrow">→</span></button>
       </div>
 
       <!-- 06 Maintenance -->
@@ -458,7 +595,7 @@
         <div class="sg-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5.25 3.8 10.74 9 12 5.2-1.26 9-6.75 9-12V6Z"/><path d="m9 12 2 2 4-4"/></svg></div>
         <h3>Maintenance &amp; Support</h3>
         <p>We provide ongoing technical support covering security updates, performance monitoring, backup management, bug fixing, content updates, and general technical assistance — so your website stays fast, secure, and up to date at all times.</p>
-        <a href="contact.html?service=maintenance" class="sg-learn">Learn More <span class="sg-learn-arrow">→</span></a>
+        <button class="sg-learn" onclick="openSvcModal('maintenance')">Learn More <span class="sg-learn-arrow">→</span></button>
       </div>
 
       <!-- 07 Graphics -->
@@ -467,7 +604,7 @@
         <div class="sg-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></div>
         <h3>Graphics Design</h3>
         <p>Creative visual design solutions tailored to your brand — logos, brand identity, marketing materials, social media graphics, UI kits, pitch decks, and print designs. We craft visuals that communicate your brand story with clarity and impact.</p>
-        <a href="contact.html?service=graphics" class="sg-learn">Learn More <span class="sg-learn-arrow">→</span></a>
+        <button class="sg-learn" onclick="openSvcModal('graphics')">Learn More <span class="sg-learn-arrow">→</span></button>
       </div>
 
     </div>
@@ -561,11 +698,11 @@
       </div>
       <p class="footer-desc">Empowering businesses with smart, scalable, and user-focused digital solutions that drive real growth.</p>
       <div class="footer-socials">
-        <a href="#" class="social-btn" title="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="#" class="social-btn" title="Twitter/X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></a>
-        <a href="#" class="social-btn" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-        <a href="#" class="social-btn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-        <a href="#" class="social-btn" title="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.12 6.12l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+        <a href="https://www.facebook.com/share/18ihEX6w1J/" class="social-btn" title="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.tiktok.com/@mwanga_digital_solutions?_r=1&amp;_t=ZS-96thG0ZDTwv" class="social-btn" title="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+        <a href="https://www.instagram.com/mwanga_digital_solutions?igsh=MWEyOG5sMXEzZGZpeg==" class="social-btn" title="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.linkedin.com/company/microteltechnology/" class="social-btn" title="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://wa.me/254789580951" class="social-btn" title="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.12 6.12l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
       </div>
     </div>
     <div class="footer-col">
@@ -592,7 +729,8 @@
       <h4>Contact</h4>
       <ul>
         <li><a href="mailto:info@mwangadigital.com">info@mwangadigital.com</a></li>
-        <li><a href="tel:+254700000000">+254 700 000 000</a></li>
+        <li><a href="tel:+254724464248">+254 724 464 248</a></li>
+        <li><a href="https://wa.me/254789580951">WhatsApp: +254 789 580 951</a></li>
         <li><a href="#">Nairobi, Kenya</a></li>
       </ul>
     </div>
@@ -604,5 +742,76 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+
+<!-- SERVICE MODAL -->
+<div id="svc-modal-overlay" onclick="if(event.target===this)closeSvcModal()">
+  <div class="svc-modal">
+    <button class="svc-modal-close" onclick="closeSvcModal()" aria-label="Close">&#x2715;</button>
+    <div class="svc-modal-header">
+      <div class="svc-modal-icon-box" id="svc-modal-icon"></div>
+      <div class="svc-modal-meta">
+        <div class="svc-modal-num" id="svc-modal-num"></div>
+        <div class="svc-modal-name" id="svc-modal-name"></div>
+        <span class="svc-modal-tag" id="svc-modal-tag"></span>
+      </div>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svc-modal-desc"></p>
+      <div class="svc-modal-features-label">What's Included</div>
+      <div class="svc-modal-features" id="svc-modal-features"></div>
+      <a href="contact.html" class="svc-modal-cta" id="svc-modal-cta">Get a Quote &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var SVC_ICONS = {
+  'web-design':   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 7h20M7 11.5l2.5 2.5-2.5 2.5M13 16h4"/></svg>',
+  'mobile-apps':  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="3"/><path d="M7 6h10M7 18h10M11 20h2"/></svg>',
+  'systems':      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 7V5M12 7V5M15 7V5M9 19v-2M12 19v-2M15 19v-2M5 9H7M5 12H7M5 15H7M17 9h2M17 12h2M17 15h2"/></svg>',
+  'seo':          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m21 21-4.35-4.35M7 13l2-2 2 2 2-3"/></svg>',
+  'redesign':     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>',
+  'maintenance':  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5.25 3.8 10.74 9 12 5.2-1.26 9-6.75 9-12V6Z"/><path d="m9 12 2 2 4-4"/></svg>',
+  'graphics':     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>'
+};
+
+var SVC_DATA = {
+  'web-design':   { num:'Service 01', name:'Website Design & Development',   tag:'Corporate · E-Commerce · Portals · Web Apps',       desc:'We create modern, responsive, and fast websites built specifically around your business goals. From corporate sites and e-commerce platforms to NGO portals and custom web applications — every site is structured to convert visitors into loyal customers, with clean code, SEO-ready architecture, and compelling design.',                                                                                                                                           features:['Responsive Design','Custom Development','CMS Integration','E-Commerce Setup','SEO-Ready Structure','Performance Optimization','Cross-Browser Support','Post-Launch Care'] },
+  'mobile-apps':  { num:'Service 02', name:'Mobile App Development',          tag:'Android · iOS · Cross-Platform',                    desc:'We develop scalable, intuitive mobile applications for Android, iOS, and cross-platform environments. Built with React Native or Flutter, our apps improve accessibility, boost customer engagement, and streamline business operations on the go — from concept all the way through to app store deployment.',                                                                                                                                              features:['Android & iOS','Cross-Platform (Flutter)','API Integration','Push Notifications','App Store Deployment','Offline Mode Support','User Analytics','Ongoing Updates'] },
+  'systems':      { num:'Service 03', name:'System Design & Development',     tag:'ERP · CRM · Automation · Custom Platforms',         desc:'We design and build custom digital systems that automate operations and streamline workflows. From school management and inventory control to CRM platforms and booking systems — every solution is built specifically around your business processes, reducing errors and increasing productivity.',                                                                                                                                                     features:['School Management Systems','Inventory & Stock Control','CRM Platforms','Booking & Scheduling','Custom Admin Dashboards','Database Architecture','Role-Based Access','API Integration'] },
+  'seo':          { num:'Service 04', name:'SEO Optimization',                tag:'Local SEO · Technical SEO · Content Strategy',      desc:'We help businesses climb search rankings and get found by the right audience. Through technical SEO audits, keyword research, on-page optimization, and strategic content — we ensure your website appears where it matters most. Transparent monthly reporting shows exactly how your traffic and rankings grow.',                                                                                                                                 features:['Technical SEO Audit','Keyword Research','On-Page Optimization','Link Building','Local SEO & Google Maps','Content Strategy','Competitor Analysis','Monthly Reports'] },
+  'redesign':     { num:'Service 05', name:'Website Redesign',                tag:'UI/UX Refresh · Speed · Modern Look',               desc:"We transform outdated websites into modern, high-performing digital experiences. Whether your site looks dated, loads slowly, or doesn't convert — we diagnose every issue and rebuild with purpose. Every redesign delivers improved UI/UX, full mobile responsiveness, optimized page speed, and a refreshed brand presence.",                                                                                                                 features:['UI/UX Redesign','Mobile Responsiveness','Page Speed Optimization','Brand Modernization','Content Migration','Conversion Rate Focus','Accessibility Improvements','Performance Testing'] },
+  'maintenance':  { num:'Service 06', name:'Maintenance & Support',           tag:'Security · Updates · Monitoring · Backups',         desc:'Your website is a living asset — and we keep it that way. Our maintenance plans cover security patches, performance monitoring, backup management, bug fixing, content updates, and ongoing technical assistance. Your site stays fast, secure, and fully operational so you can focus on running your business.',                                                                                                                           features:['Security Patches','Performance Monitoring','Automated Backups','Bug Fixes','Content Updates','Uptime Monitoring','Software Updates','Priority Support'] },
+  'graphics':     { num:'Service 07', name:'Graphics Design',                 tag:'Branding · Marketing · UI Design',                  desc:'Creative visual design solutions tailored to your brand identity. We craft logos, brand guidelines, social media graphics, marketing collateral, UI kits, pitch decks, and print materials. Every design decision communicates your brand story with clarity, consistency, and impact across every touchpoint.',                                                                                                                             features:['Logo & Brand Identity','Brand Style Guidelines','Social Media Graphics','Marketing Collateral','UI Design Kits','Pitch Decks','Print Design','Packaging Design'] }
+};
+
+var SVC_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+
+function openSvcModal(id) {
+  var s = SVC_DATA[id];
+  if (!s) return;
+  document.getElementById('svc-modal-icon').innerHTML = SVC_ICONS[id] || '';
+  document.getElementById('svc-modal-num').textContent = s.num;
+  document.getElementById('svc-modal-name').textContent = s.name;
+  document.getElementById('svc-modal-tag').textContent = s.tag;
+  document.getElementById('svc-modal-desc').textContent = s.desc;
+  document.getElementById('svc-modal-features').innerHTML = s.features.map(function(f) {
+    return '<div class="svc-modal-feat"><span class="svc-modal-feat-check">' + SVC_CHECK + '</span>' + f + '</div>';
+  }).join('');
+  document.getElementById('svc-modal-cta').href = 'contact.html?service=' + id;
+  var overlay = document.getElementById('svc-modal-overlay');
+  overlay.classList.add('svc-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSvcModal() {
+  document.getElementById('svc-modal-overlay').classList.remove('svc-open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeSvcModal();
+});
+</script>
 </body>
 </html>

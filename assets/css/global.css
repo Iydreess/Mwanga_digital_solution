@@ -132,6 +132,11 @@ nav.scrolled{
 /* ===== NAV DROPDOWN (Split) ===== */
 .has-dropdown{position:relative}
 .has-dropdown>a{display:flex;align-items:center;gap:6px}
+/* Invisible bridge that fills the gap so hover stays active moving to the dropdown */
+.has-dropdown::before{
+  content:'';position:absolute;top:100%;left:-20px;right:-20px;
+  height:24px;z-index:199;
+}
 .drop-arrow{
   width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;
   opacity:0.5;transition:transform 0.3s,opacity 0.3s;flex-shrink:0;

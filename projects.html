@@ -3,11 +3,34 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Projects | Mwanga Digital Solutions</title>
-<meta name="description" content="Explore our portfolio of successful projects — websites, mobile apps, systems, and brand identities delivered for clients across Kenya and beyond."/>
+<title>Our Work & Portfolio | 100+ Projects Delivered — Mwanga Digital Solutions Kenya</title>
+<meta name="description" content="Explore Mwanga Digital Solutions' portfolio of 100+ delivered projects — websites, e-commerce stores, real estate systems, mobile apps, and more. Real results for businesses across Kenya and East Africa."/>
+<meta name="keywords" content="web design portfolio kenya, digital agency projects nairobi, website examples kenya, mobile app portfolio kenya, mwanga digital projects, e-commerce kenya, real estate system kenya, click and go auto, ansar islamic, mafaza organization"/>
+<meta name="author" content="Mwanga Digital Solutions"/>
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<meta name="theme-color" content="#FFD000"/>
+<link rel="canonical" href="https://mwangadigital.com/projects.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Mwanga Digital Solutions"/>
+<meta property="og:url" content="https://mwangadigital.com/projects.html"/>
+<meta property="og:title" content="Our Work & Portfolio | 100+ Projects — Mwanga Digital Solutions Kenya"/>
+<meta property="og:description" content="100+ digital projects delivered — websites, e-commerce, mobile apps, real estate systems & more. Real results for businesses across Kenya and East Africa."/>
+<meta property="og:image" content="https://mwangadigital.com/assets/images/projects/clickandgo.png"/>
+<meta property="og:image:alt" content="Mwanga Digital Solutions Portfolio — Click and Go Auto"/>
+<meta property="og:locale" content="en_KE"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Portfolio | Mwanga Digital Solutions — 100+ Projects Delivered Kenya"/>
+<meta name="twitter:description" content="100+ delivered projects: websites, mobile apps, e-commerce platforms, management systems & more. Real results for Kenya businesses."/>
+<meta name="twitter:image" content="https://mwangadigital.com/assets/images/projects/clickandgo.png"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://mwangadigital.com/projects.html","url":"https://mwangadigital.com/projects.html","name":"Portfolio & Projects — Mwanga Digital Solutions","description":"100+ digital projects delivered by Mwanga Digital Solutions across Kenya and East Africa — websites, mobile apps, management systems and more.","inLanguage":"en-KE","isPartOf":{"@id":"https://mwangadigital.com/#website"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mwangadigital.com"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://mwangadigital.com/projects.html"}]}}]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="assets/images/favicon.png"/>
+<link rel="shortcut icon" type="image/png" href="assets/images/favicon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
 <link rel="stylesheet" href="assets/css/global.css"/>
 <style>
 
@@ -334,6 +357,98 @@
   .pf-results{grid-template-columns:repeat(3,1fr)}
   .proj-cta-inner{flex-direction:column;text-align:center}
 }
+
+/* ─── Real project screenshots ─── */
+.proj-visual img,.pf-visual img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:top center;z-index:0;
+  transition:transform 0.6s;
+}
+.proj-card:hover .proj-visual img,.project-featured:hover .pf-visual img{transform:scale(1.06)}
+.proj-visual::before,.pf-visual::before{z-index:1}
+.proj-card:hover .proj-visual::before{transform:none}
+
+/* ─── Project Modal ─── */
+@keyframes pmFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pmSlideIn{from{opacity:0;transform:translateY(28px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+#proj-modal-overlay{
+  display:none;position:fixed;inset:0;z-index:9999;
+  background:rgba(5,5,5,0.88);backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;padding:20px;
+  animation:pmFadeIn 0.25s ease forwards;
+}
+#proj-modal-overlay.pm-open{display:flex}
+.proj-modal{
+  background:#111;border:1px solid rgba(255,208,0,0.18);
+  border-radius:20px;max-width:580px;width:100%;
+  max-height:88vh;overflow-y:auto;position:relative;
+  animation:pmSlideIn 0.32s cubic-bezier(0.22,1,0.36,1) forwards;
+  box-shadow:0 40px 100px rgba(0,0,0,0.8);scrollbar-width:none;
+}
+.proj-modal::-webkit-scrollbar{display:none}
+.proj-modal-img{
+  width:100%;height:220px;overflow:hidden;
+  border-radius:20px 20px 0 0;background:#0a0a0a;position:relative;
+}
+.proj-modal-img img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.proj-modal-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 50%,rgba(0,0,0,0.55) 100%);
+}
+.proj-modal-close{
+  position:absolute;top:14px;right:14px;z-index:10;
+  width:34px;height:34px;border-radius:50%;
+  background:rgba(0,0,0,0.65);border:1px solid rgba(255,255,255,0.15);
+  color:#fff;font-size:0.9rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;font-family:inherit;padding:0;
+}
+.proj-modal-close:hover{background:rgba(255,208,0,0.2);border-color:rgba(255,208,0,0.5);color:#FFD000}
+.proj-modal-body{padding:26px 28px 30px}
+.proj-modal-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,208,0,0.08);border:1px solid rgba(255,208,0,0.2);
+  padding:3px 12px;border-radius:100px;
+  font-size:0.68rem;font-weight:700;color:#FFD000;
+  letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;
+}
+.proj-modal-client{font-size:0.74rem;color:rgba(255,208,0,0.65);font-weight:600;letter-spacing:0.04em;margin-bottom:5px}
+.proj-modal-title{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:1.2rem;line-height:1.25;letter-spacing:-0.02em;color:#fff;margin-bottom:12px;
+}
+.proj-modal-desc{
+  color:rgba(255,255,255,0.5);font-size:0.86rem;line-height:1.8;font-weight:300;
+  padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:16px;
+}
+.proj-modal-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
+.proj-modal-tag{
+  padding:3px 10px;border-radius:100px;
+  border:1px solid rgba(255,255,255,0.1);
+  font-size:0.7rem;color:rgba(255,255,255,0.4);
+}
+.proj-modal-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#FFD000;color:#000;padding:11px 24px;border-radius:100px;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:0.83rem;
+  text-decoration:none;letter-spacing:0.02em;
+  transition:all 0.25s;box-shadow:0 0 24px rgba(255,208,0,0.25);
+}
+.proj-modal-cta:hover{background:#FFC000;box-shadow:0 0 40px rgba(255,208,0,0.5);transform:translateY(-2px)}
+.proj-modal-cta-gh{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.06);color:#fff;
+  border:1px solid rgba(255,255,255,0.14);
+  padding:11px 24px;border-radius:100px;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.83rem;
+  text-decoration:none;letter-spacing:0.02em;transition:all 0.25s;
+}
+.proj-modal-cta-gh:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.28);transform:translateY(-2px)}
+@media(max-width:520px){
+  .proj-modal-body{padding:18px 18px 22px}
+  .proj-modal-img{height:170px}
+  .proj-modal-title{font-size:1.05rem}
+}
 </style>
 </head>
 <body>
@@ -453,255 +568,257 @@
     <div class="section-header fade-up">
       <div class="section-label">Case Studies</div>
       <h2 class="section-h2">Selected <span style="color:var(--gold)">Projects</span></h2>
-      <p class="section-sub">Filter by category to explore our work across different domains.</p>
+      <p class="section-sub">Real projects. Real clients. Real results.</p>
     </div>
 
     <!-- Filter Tabs -->
     <div class="filter-tabs">
       <button class="filter-tab active" onclick="filterProjects('all', this)">All Work</button>
-      <button class="filter-tab" onclick="filterProjects('web', this)">Web Design</button>
+      <button class="filter-tab" onclick="filterProjects('web', this)">Websites</button>
       <button class="filter-tab" onclick="filterProjects('app', this)">Mobile Apps</button>
-      <button class="filter-tab" onclick="filterProjects('system', this)">Systems</button>
-      <button class="filter-tab" onclick="filterProjects('brand', this)">Branding</button>
-      <button class="filter-tab" onclick="filterProjects('seo', this)">SEO</button>
+      <button class="filter-tab" onclick="filterProjects('system', this)">Systems &amp; Apps</button>
     </div>
 
     <!-- Featured Project -->
-    <div class="project-featured fade-up" data-cat="web">
+    <div class="project-featured fade-up" data-cat="web" onclick="openProjModal('click-go')" style="cursor:pointer">
       <div class="pf-visual">
-        <div class="pf-mock">
-          <div class="pf-mock-bar">
-            <div class="pf-mock-dot"></div><div class="pf-mock-dot"></div><div class="pf-mock-dot"></div>
-          </div>
-          <div class="pf-mock-line gold"></div>
-          <div class="pf-mock-line" style="width:90%"></div>
-          <div class="pf-mock-line" style="width:70%"></div>
-          <div class="pf-mock-grid">
-            <div class="pf-mock-card"></div>
-            <div class="pf-mock-card"></div>
-            <div class="pf-mock-card"></div>
-            <div class="pf-mock-card"></div>
-          </div>
-        </div>
+        <img src="assets/images/projects/clickandgo.png" alt="Click and Go Auto"/>
       </div>
       <div class="pf-content">
-        <div class="pf-badge">Featured · Web Design</div>
-        <h3 class="pf-title">PrimeCare Clinic<br/>Digital Platform</h3>
-        <p class="pf-desc">A complete digital overhaul for Nairobi's PrimeCare Clinic — from branding through to a fully responsive website with integrated appointment booking, patient portal, and SEO strategy that positioned them as the top clinic in their region.</p>
+        <div class="pf-badge">Featured · E-Commerce</div>
+        <h3 class="pf-title">Click and Go<br/>Auto E-Commerce</h3>
+        <p class="pf-desc">A fully-featured e-commerce website for Click and Go Auto — enabling seamless online vehicle browsing, enquiries, and purchases. The platform features a clean product catalogue, advanced search, WhatsApp integration, and a fully responsive mobile-first experience designed to drive real sales.</p>
         <div class="pf-tags">
-          <span class="pf-tag">UI/UX Design</span>
-          <span class="pf-tag">Web Development</span>
-          <span class="pf-tag">SEO</span>
-          <span class="pf-tag">Booking System</span>
+          <span class="pf-tag">E-Commerce</span>
+          <span class="pf-tag">Web Design</span>
+          <span class="pf-tag">Responsive</span>
+          <span class="pf-tag">Auto Industry</span>
         </div>
-        <div class="pf-results">
-          <div><div class="pf-result-num">300%</div><div class="pf-result-label">Traffic Increase</div></div>
-          <div><div class="pf-result-num">#1</div><div class="pf-result-label">Google Ranking</div></div>
-          <div><div class="pf-result-num">4mo</div><div class="pf-result-label">Delivery Time</div></div>
-        </div>
-        <a href="contact.html" class="pf-link">
-          Start a Similar Project
+        <a href="https://clickandgoauto.com/" target="_blank" rel="noopener" class="pf-link" onclick="event.stopPropagation()">
+          Visit Live Website
           <div class="pf-link-arrow">→</div>
         </a>
       </div>
     </div>
 
-    <!-- Projects Grid -->
+    <!-- Projects Grid — 6 visible, 4 load-more -->
     <div class="projects-grid" id="projects-grid">
 
-      <div class="proj-card fade-up" data-cat="system">
-        <div class="proj-visual pv-sys">
-          <div class="proj-cat-pill">System</div>
-          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></svg></div>
+      <div class="proj-card fade-up" data-cat="web" onclick="openProjModal('ansar-islamic')">
+        <div class="proj-visual pv-web">
+          <div class="proj-cat-pill">Website</div>
+          <img src="assets/images/projects/ansar-islamic.png" alt="Ansar Islamic Organization"/>
         </div>
         <div class="proj-body">
-          <div class="proj-client">Greenfield Academy</div>
-          <h3 class="proj-title">School Management System</h3>
-          <p class="proj-desc">Custom end-to-end school ERP covering student records, fee collection, examinations, report generation, and staff management — deployed across 3 campuses.</p>
+          <div class="proj-client">Ansar Islamic Organization</div>
+          <h3 class="proj-title">Ansar Islamic Organization Website</h3>
+          <p class="proj-desc">Modern, responsive website communicating mission, programs, and community outreach — designed for clarity and engagement.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Web Design</span>
+            <span class="proj-tag">Development</span>
+            <span class="proj-tag">Non-Profit</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result">Live at <strong>ansarislamic.org</strong></span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" data-cat="web" onclick="openProjModal('ameer-creatives')">
+        <div class="proj-visual pv-web">
+          <div class="proj-cat-pill">Website</div>
+          <img src="assets/images/projects/ameer-creatives.png" alt="Ameer Creatives"/>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">Ameer Creatives</div>
+          <h3 class="proj-title">Ameer Creatives Website</h3>
+          <p class="proj-desc">Bold creative portfolio website showcasing work and services — built to attract clients and establish a strong digital presence.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Web Design</span>
+            <span class="proj-tag">UI/UX</span>
+            <span class="proj-tag">Portfolio</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result">Live at <strong>ameercreatives.com</strong></span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" data-cat="web" onclick="openProjModal('anwaar-foundation')">
+        <div class="proj-visual pv-web">
+          <div class="proj-cat-pill">Website</div>
+          <img src="assets/images/projects/anwaar-foundation.png" alt="Anwaar Foundation"/>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">Anwaar Foundation</div>
+          <h3 class="proj-title">Anwaar Foundation Website</h3>
+          <p class="proj-desc">Purpose-driven charity website highlighting programs and impact stories — designed to build trust and facilitate community engagement.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Web Design</span>
+            <span class="proj-tag">Non-Profit</span>
+            <span class="proj-tag">Responsive</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result">Live at <strong>anwaarfoundation.com</strong></span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" data-cat="system" onclick="openProjModal('qibla-homes')">
+        <div class="proj-visual pv-sys">
+          <div class="proj-cat-pill">Management System</div>
+          <img src="assets/images/projects/qiblahomes.png" alt="Qibla Homes Limited"/>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">Qibla Homes Limited</div>
+          <h3 class="proj-title">Real Estate Management System</h3>
+          <p class="proj-desc">Comprehensive real estate platform with property listings, client management, booking workflows, and administrative reporting.</p>
           <div class="proj-tags">
             <span class="proj-tag">System Dev</span>
-            <span class="proj-tag">Database</span>
-            <span class="proj-tag">Dashboard</span>
+            <span class="proj-tag">Real Estate</span>
+            <span class="proj-tag">Web App</span>
           </div>
         </div>
         <div class="proj-footer">
-          <span class="proj-result"><strong>1,200+</strong> students managed</span>
+          <span class="proj-result">Live at <strong>qiblahomesltd.com</strong></span>
           <div class="proj-arrow">→</div>
         </div>
       </div>
 
-      <div class="proj-card fade-up" data-cat="app">
-        <div class="proj-visual pv-app">
-          <div class="proj-cat-pill">Mobile App</div>
-          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-client">Hope Community NGO</div>
-          <h3 class="proj-title">Beneficiary Management App</h3>
-          <p class="proj-desc">A cross-platform mobile app enabling the NGO to register, track, and communicate with over 5,000 beneficiaries — including offline sync for low-connectivity areas.</p>
-          <div class="proj-tags">
-            <span class="proj-tag">Flutter</span>
-            <span class="proj-tag">Offline-first</span>
-            <span class="proj-tag">Android/iOS</span>
-          </div>
-        </div>
-        <div class="proj-footer">
-          <span class="proj-result"><strong>5,000+</strong> beneficiaries reached</span>
-          <div class="proj-arrow">→</div>
-        </div>
-      </div>
-
-      <div class="proj-card fade-up" data-cat="web">
+      <div class="proj-card fade-up" data-cat="web" onclick="openProjModal('mafaza-org')">
         <div class="proj-visual pv-web">
-          <div class="proj-cat-pill">E-Commerce</div>
-          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+          <div class="proj-cat-pill">Website</div>
+          <img src="assets/images/projects/mafaza-org.png" alt="Mafaza Organization"/>
         </div>
         <div class="proj-body">
-          <div class="proj-client">ShopAfrica Online</div>
-          <h3 class="proj-title">E-Commerce Platform</h3>
-          <p class="proj-desc">A fully featured e-commerce platform with product catalogue, cart, M-Pesa checkout, inventory management, and a seller dashboard — built to scale from day one.</p>
+          <div class="proj-client">Mafaza Organization</div>
+          <h3 class="proj-title">Mafaza Organization Website</h3>
+          <p class="proj-desc">Impactful NGO website communicating mission and programs — driving community engagement, donations, and partnership outreach.</p>
           <div class="proj-tags">
-            <span class="proj-tag">E-Commerce</span>
-            <span class="proj-tag">M-Pesa</span>
-            <span class="proj-tag">Admin Panel</span>
-          </div>
-        </div>
-        <div class="proj-footer">
-          <span class="proj-result"><strong>180%</strong> sales growth</span>
-          <div class="proj-arrow">→</div>
-        </div>
-      </div>
-
-      <div class="proj-card fade-up" data-cat="brand">
-        <div class="proj-visual pv-brand">
-          <div class="proj-cat-pill">Branding</div>
-          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-client">Kariuki Enterprises</div>
-          <h3 class="proj-title">Complete Brand Identity</h3>
-          <p class="proj-desc">Full brand identity creation from scratch — logo design, brand guidelines, stationery, social media templates, and a corporate website aligned with their business vision.</p>
-          <div class="proj-tags">
-            <span class="proj-tag">Logo Design</span>
-            <span class="proj-tag">Brand Guide</span>
             <span class="proj-tag">Web Design</span>
-          </div>
-        </div>
-        <div class="proj-footer">
-          <span class="proj-result"><strong>300%</strong> website traffic</span>
-          <div class="proj-arrow">→</div>
-        </div>
-      </div>
-
-      <div class="proj-card fade-up" data-cat="seo">
-        <div class="proj-visual pv-seo">
-          <div class="proj-cat-pill">SEO</div>
-          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-client">PrimeCare Clinic</div>
-          <h3 class="proj-title">Local SEO & Content Strategy</h3>
-          <p class="proj-desc">Comprehensive local SEO campaign including technical audit, content strategy, Google Business optimisation, and link building — achieving top-3 Google rankings in 5 months.</p>
-          <div class="proj-tags">
-            <span class="proj-tag">Technical SEO</span>
-            <span class="proj-tag">Content</span>
-            <span class="proj-tag">Local SEO</span>
-          </div>
-        </div>
-        <div class="proj-footer">
-          <span class="proj-result">Page <strong>#1</strong> in 5 months</span>
-          <div class="proj-arrow">→</div>
-        </div>
-      </div>
-
-      <div class="proj-card fade-up" data-cat="system">
-        <div class="proj-visual pv-sys">
-          <div class="proj-cat-pill">System</div>
-          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-client">Retail Chain Client</div>
-          <h3 class="proj-title">Inventory & POS System</h3>
-          <p class="proj-desc">Custom inventory management and point-of-sale system for a multi-branch retail chain — real-time stock tracking, sales analytics, and automated reorder alerts.</p>
-          <div class="proj-tags">
-            <span class="proj-tag">POS</span>
-            <span class="proj-tag">Inventory</span>
-            <span class="proj-tag">Analytics</span>
-          </div>
-        </div>
-        <div class="proj-footer">
-          <span class="proj-result"><strong>4</strong> branches deployed</span>
-          <div class="proj-arrow">→</div>
-        </div>
-      </div>
-
-      <div class="proj-card fade-up" data-cat="app">
-        <div class="proj-visual pv-app">
-          <div class="proj-cat-pill">Mobile App</div>
-          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-client">Local Logistics Company</div>
-          <h3 class="proj-title">Delivery Tracking App</h3>
-          <p class="proj-desc">Real-time delivery tracking application for drivers and customers — live GPS tracking, status updates, digital proof of delivery, and a dispatch management dashboard.</p>
-          <div class="proj-tags">
-            <span class="proj-tag">GPS Tracking</span>
-            <span class="proj-tag">React Native</span>
-            <span class="proj-tag">Firebase</span>
-          </div>
-        </div>
-        <div class="proj-footer">
-          <span class="proj-result"><strong>40%</strong> faster deliveries</span>
-          <div class="proj-arrow">→</div>
-        </div>
-      </div>
-
-      <div class="proj-card fade-up" data-cat="web">
-        <div class="proj-visual pv-web">
-          <div class="proj-cat-pill">Web Design</div>
-          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-client">Startup — FinTech</div>
-          <h3 class="proj-title">FinTech Corporate Website</h3>
-          <p class="proj-desc">Sleek, conversion-focused corporate website for an emerging FinTech startup — premium design, animated data visualisations, investor section, and integration-ready architecture.</p>
-          <div class="proj-tags">
-            <span class="proj-tag">UI/UX</span>
-            <span class="proj-tag">Animation</span>
+            <span class="proj-tag">Non-Profit</span>
             <span class="proj-tag">CMS</span>
           </div>
         </div>
         <div class="proj-footer">
-          <span class="proj-result">Launched in <strong>6 weeks</strong></span>
+          <span class="proj-result">Live at <strong>mafazaa.org</strong></span>
           <div class="proj-arrow">→</div>
         </div>
       </div>
 
-      <div class="proj-card fade-up" data-cat="brand">
-        <div class="proj-visual pv-brand">
-          <div class="proj-cat-pill">Branding</div>
-          <div class="proj-visual-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4M19 17v4M3 5h4M17 19h4"/></svg></div>
+      <div class="proj-card fade-up" data-cat="app" onclick="openProjModal('mafaza-app')">
+        <div class="proj-visual pv-app">
+          <div class="proj-cat-pill">Mobile App</div>
+          <img src="assets/images/projects/mafaza-app.jpg" alt="Mafaza App"/>
         </div>
         <div class="proj-body">
-          <div class="proj-client">Fashion Brand</div>
-          <h3 class="proj-title">Fashion Brand Visual Identity</h3>
-          <p class="proj-desc">Bold and distinctive brand identity for a Nairobi-based fashion label — logo, packaging design, lookbook layouts, and a product photography style guide.</p>
+          <div class="proj-client">Mafaza Organization</div>
+          <h3 class="proj-title">Mafaza Mobile App</h3>
+          <p class="proj-desc">Community mobile app keeping members informed — featuring program updates, event notifications, and direct communication channels.</p>
           <div class="proj-tags">
-            <span class="proj-tag">Logo Design</span>
-            <span class="proj-tag">Packaging</span>
-            <span class="proj-tag">Print</span>
+            <span class="proj-tag">Mobile App</span>
+            <span class="proj-tag">Flutter</span>
+            <span class="proj-tag">Android/iOS</span>
           </div>
         </div>
         <div class="proj-footer">
-          <span class="proj-result">Complete brand in <strong>3 weeks</strong></span>
+          <span class="proj-result">Community <strong>engagement app</strong></span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Load More cards (hidden by default) -->
+      <div class="proj-card fade-up" data-cat="system" data-loadmore="true" style="display:none" onclick="openProjModal('shambatek')">
+        <div class="proj-visual pv-sys">
+          <div class="proj-cat-pill">Web App</div>
+          <img src="assets/images/projects/shambatek.png" alt="SHambatek"/>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">SHambatek</div>
+          <h3 class="proj-title">SHambatek Agricultural Web App</h3>
+          <p class="proj-desc">Agricultural platform connecting farmers with markets, resources, and advisory services — modernizing trade for smallholder farmers.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Web App</span>
+            <span class="proj-tag">AgriTech</span>
+            <span class="proj-tag">Open Source</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result">Open source on <strong>GitHub</strong></span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" data-cat="system" data-loadmore="true" style="display:none" onclick="openProjModal('smartq')">
+        <div class="proj-visual pv-sys">
+          <div class="proj-cat-pill">Digital System</div>
+          <img src="assets/images/projects/smartq.png" alt="Smart Q"/>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">Smart Q</div>
+          <h3 class="proj-title">Smart Q – Queue Management System</h3>
+          <p class="proj-desc">Digital queue system eliminating physical waiting lines — virtual queuing, real-time notifications, and service analytics for any business.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Queue System</span>
+            <span class="proj-tag">Web App</span>
+            <span class="proj-tag">Open Source</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result">Open source on <strong>GitHub</strong></span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" data-cat="system" data-loadmore="true" style="display:none" onclick="openProjModal('subscription-mgmt')">
+        <div class="proj-visual pv-sys">
+          <div class="proj-cat-pill">SaaS System</div>
+          <img src="assets/images/projects/subscription-management.png" alt="Subscription Management"/>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">SaaS Platform</div>
+          <h3 class="proj-title">Subscription Management System</h3>
+          <p class="proj-desc">Full-featured SaaS platform for plan management, billing cycles, access control, payment integration, and automated renewal notifications.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">SaaS</span>
+            <span class="proj-tag">Billing</span>
+            <span class="proj-tag">Full-Stack</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result">Live on <strong>Vercel</strong></span>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" data-cat="app" data-loadmore="true" style="display:none" onclick="openProjModal('budget-up')">
+        <div class="proj-visual pv-app">
+          <div class="proj-cat-pill">Mobile App</div>
+          <img src="assets/images/projects/budgetapp.jpg" alt="Budget Up"/>
+        </div>
+        <div class="proj-body">
+          <div class="proj-client">Budget Up</div>
+          <h3 class="proj-title">Budget Up – Personal Finance App</h3>
+          <p class="proj-desc">Personal finance app for tracking income, expenses, and savings goals — with intuitive budget planning and visual financial reports.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Mobile App</span>
+            <span class="proj-tag">FinTech</span>
+            <span class="proj-tag">Flutter</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-result">Personal <strong>finance tracker</strong></span>
           <div class="proj-arrow">→</div>
         </div>
       </div>
 
     </div><!-- /projects-grid -->
 
-    <div class="portfolio-load-more fade-up">
-      <button class="load-more-btn" onclick="this.textContent='Coming soon — more case studies dropping soon!'">
+    <div class="portfolio-load-more fade-up" id="load-more-wrap">
+      <button class="load-more-btn" onclick="loadMoreProjects()">
         Load More Projects <span>↓</span>
       </button>
     </div>
@@ -733,11 +850,11 @@
       </div>
       <p class="footer-desc">Empowering businesses with smart, scalable, and user-focused digital solutions that drive real growth.</p>
       <div class="footer-socials">
-        <a href="#" class="social-btn" title="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="#" class="social-btn" title="Twitter/X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></a>
-        <a href="#" class="social-btn" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-        <a href="#" class="social-btn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-        <a href="#" class="social-btn" title="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.12 6.12l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+        <a href="https://www.facebook.com/share/18ihEX6w1J/" class="social-btn" title="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.tiktok.com/@mwanga_digital_solutions?_r=1&amp;_t=ZS-96thG0ZDTwv" class="social-btn" title="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+        <a href="https://www.instagram.com/mwanga_digital_solutions?igsh=MWEyOG5sMXEzZGZpeg==" class="social-btn" title="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.linkedin.com/company/microteltechnology/" class="social-btn" title="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://wa.me/254789580951" class="social-btn" title="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.12 6.12l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
       </div>
     </div>
     <div class="footer-col">
@@ -764,7 +881,8 @@
       <h4>Contact</h4>
       <ul>
         <li><a href="mailto:info@mwangadigital.com">info@mwangadigital.com</a></li>
-        <li><a href="tel:+254700000000">+254 700 000 000</a></li>
+        <li><a href="tel:+254724464248">+254 724 464 248</a></li>
+        <li><a href="https://wa.me/254789580951">WhatsApp: +254 789 580 951</a></li>
         <li><a href="#">Nairobi, Kenya</a></li>
       </ul>
     </div>
@@ -776,25 +894,102 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
-<script>
-function filterProjects(cat, btn){
-  /* Update active tab */
-  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
 
-  /* Show/hide cards */
-  const cards = document.querySelectorAll('#projects-grid .proj-card, .project-featured');
-  cards.forEach(card => {
-    const cardCat = card.dataset.cat;
-    if(cat === 'all' || cardCat === cat){
-      card.style.display = '';
-      /* Re-trigger fade animation */
-      card.classList.remove('visible');
-      setTimeout(() => card.classList.add('visible'), 50);
-    } else {
-      card.style.display = 'none';
-    }
+<!-- PROJECT MODAL -->
+<div id="proj-modal-overlay" onclick="if(event.target===this)closeProjModal()">
+  <div class="proj-modal">
+    <div class="proj-modal-img">
+      <button class="proj-modal-close" onclick="closeProjModal()">&#x2715;</button>
+      <img id="pm-img" src="" alt=""/>
+    </div>
+    <div class="proj-modal-body">
+      <div class="proj-modal-badge" id="pm-badge"></div>
+      <div class="proj-modal-client" id="pm-client"></div>
+      <div class="proj-modal-title" id="pm-title"></div>
+      <p class="proj-modal-desc" id="pm-desc"></p>
+      <div class="proj-modal-tags" id="pm-tags"></div>
+      <div id="pm-link"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+var PM_DATA = {
+  'click-go':{ badge:'Featured · E-Commerce', client:'Click and Go Auto', title:'Click and Go – Auto E-Commerce Website', desc:'A fully-featured e-commerce website for Click and Go Auto — enabling seamless online vehicle browsing, enquiries, and purchases. The platform features a clean product catalogue, advanced search and filter, WhatsApp integration, and a fully responsive mobile-first experience built to drive real sales.', tags:['E-Commerce','Web Design','Responsive','Auto Industry'], img:'assets/images/projects/clickandgo.png', linkType:'live', link:'https://clickandgoauto.com/', linkLabel:'Visit Live Website' },
+  'ansar-islamic':{ badge:'Website', client:'Ansar Islamic Organization', title:'Ansar Islamic Organization Website', desc:'A clean, modern website for Ansar Islamic Organization — designed to communicate their mission, programs, and community outreach effectively. Features responsive design, clear navigation, and an engaging layout that reflects the organization\'s values and serves as a reliable digital hub for their community.', tags:['Web Design','Development','Non-Profit','Responsive'], img:'assets/images/projects/ansar-islamic.png', linkType:'live', link:'https://ansarislamic.org/', linkLabel:'Visit Website' },
+  'ameer-creatives':{ badge:'Website', client:'Ameer Creatives', title:'Ameer Creatives Website', desc:'A creative portfolio and agency website for Ameer Creatives — designed to showcase their work, attract clients, and communicate their brand identity. Features a bold, modern aesthetic that positions Ameer Creatives as a premium creative agency and drives new client enquiries.', tags:['Web Design','UI/UX','Portfolio','Agency'], img:'assets/images/projects/ameer-creatives.png', linkType:'live', link:'https://ameercreatives.com/', linkLabel:'Visit Website' },
+  'anwaar-foundation':{ badge:'Website', client:'Anwaar Foundation', title:'Anwaar Foundation Website', desc:'A purpose-driven website for Anwaar Foundation built to highlight charitable initiatives, programs, and community impact. Designed with a clean, trustworthy layout that facilitates donations, volunteer engagement, and partnership outreach — helping the foundation expand its reach online.', tags:['Web Design','Non-Profit','Responsive','CMS'], img:'assets/images/projects/anwaar-foundation.png', linkType:'live', link:'https://anwaarfoundation.com/', linkLabel:'Visit Website' },
+  'qibla-homes':{ badge:'Management System', client:'Qibla Homes Limited', title:'Real Estate Management System', desc:'A comprehensive real estate management platform for Qibla Homes Limited — enabling property listings, client management, booking workflows, and administrative reporting. The system streamlines their entire property sales and rental process, reducing manual work and improving client experience.', tags:['System Dev','Real Estate','Web App','Admin Dashboard'], img:'assets/images/projects/qiblahomes.png', linkType:'live', link:'https://qiblahomesltd.com/', linkLabel:'Visit Platform' },
+  'mafaza-org':{ badge:'Website', client:'Mafaza Organization', title:'Mafaza Organization Website', desc:'An impactful website for Mafaza Organization designed to communicate their mission and community programs. Supports clear storytelling and effective calls to action for donations and partnerships — helping the organization grow its community presence online.', tags:['Web Design','Non-Profit','CMS','Responsive'], img:'assets/images/projects/mafaza-org.png', linkType:'live', link:'https://mafazaa.org', linkLabel:'Visit Website' },
+  'mafaza-app':{ badge:'Mobile App', client:'Mafaza Organization', title:'Mafaza Mobile App', desc:'A companion mobile application for Mafaza Organization keeping their community informed and engaged. Features program updates, event notifications, and direct communication channels — enabling the organization to stay connected with their audience on the go.', tags:['Mobile App','Flutter','Android/iOS','Community'], img:'assets/images/projects/mafaza-app.jpg', linkType:'none', link:null, linkLabel:null },
+  'shambatek':{ badge:'Web App · Open Source', client:'SHambatek', title:'SHambatek Agricultural Web App', desc:'SHambatek is an agricultural web application connecting farmers with markets, resources, and advisory services. Built to modernize agricultural trade and information sharing for smallholder farmers — bridging the gap between farmers and opportunities through technology.', tags:['Web App','AgriTech','Full-Stack','Open Source'], img:'assets/images/projects/shambatek.png', linkType:'github', link:'https://github.com/Iydreess/shambatek', linkLabel:'View on GitHub' },
+  'smartq':{ badge:'Digital System · Open Source', client:'Smart Q', title:'Smart Q – Digital Queue Management System', desc:'Smart Q is a digital queue management system designed to eliminate physical waiting lines. Allows businesses to manage customer flow digitally — with virtual queuing, real-time status notifications, and service analytics. Built for clinics, banks, government offices, and service centers.', tags:['Queue System','Web App','Real-time','Open Source'], img:'assets/images/projects/smartq.png', linkType:'github', link:'https://github.com/Iydreess/smartq', linkLabel:'View on GitHub' },
+  'subscription-mgmt':{ badge:'SaaS System', client:'Subscription Platform', title:'Subscription Management System', desc:'A full-featured subscription management platform built as a SaaS solution — handling plan management, billing cycles, user access control, payment integration, and automated renewal notifications. Ideal for businesses offering subscription-based products or services.', tags:['SaaS','Subscription','Full-Stack','Billing'], img:'assets/images/projects/subscription-management.png', linkType:'live', link:'https://saas-subscription-management-bfys.vercel.app', linkLabel:'View Live Demo' },
+  'budget-up':{ badge:'Mobile App', client:'Budget Up', title:'Budget Up – Personal Finance App', desc:'Budget Up is a personal finance mobile application that helps users take control of their money. Track income, expenses, and savings goals with an intuitive interface — featuring budget planning, spending category insights, and visual financial reports to build better financial habits.', tags:['Mobile App','FinTech','Flutter','Personal Finance'], img:'assets/images/projects/budgetapp.jpg', linkType:'none', link:null, linkLabel:null }
+};
+
+var EXT_ICON = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+var GH_ICON  = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>';
+
+function openProjModal(id) {
+  var d = PM_DATA[id];
+  if (!d) return;
+  document.getElementById('pm-img').src = d.img;
+  document.getElementById('pm-img').alt = d.title;
+  document.getElementById('pm-badge').textContent = d.badge;
+  document.getElementById('pm-client').textContent = d.client;
+  document.getElementById('pm-title').textContent = d.title;
+  document.getElementById('pm-desc').textContent = d.desc;
+  document.getElementById('pm-tags').innerHTML = d.tags.map(function(t){ return '<span class="proj-modal-tag">'+t+'</span>'; }).join('');
+  var lEl = document.getElementById('pm-link');
+  if (d.linkType === 'live') {
+    lEl.innerHTML = '<a href="'+d.link+'" target="_blank" rel="noopener" class="proj-modal-cta">'+EXT_ICON+' '+d.linkLabel+'</a>';
+  } else if (d.linkType === 'github') {
+    lEl.innerHTML = '<a href="'+d.link+'" target="_blank" rel="noopener" class="proj-modal-cta-gh">'+GH_ICON+' '+d.linkLabel+'</a>';
+  } else {
+    lEl.innerHTML = '<p style="font-size:0.82rem;color:rgba(255,255,255,0.3);font-style:italic">Contact us to learn more about this project.</p>';
+  }
+  document.getElementById('proj-modal-overlay').classList.add('pm-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProjModal() {
+  document.getElementById('proj-modal-overlay').classList.remove('pm-open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeProjModal(); });
+
+function filterProjects(cat, btn) {
+  document.querySelectorAll('.filter-tab').forEach(function(t){ t.classList.remove('active'); });
+  btn.classList.add('active');
+  var featured = document.querySelector('.project-featured');
+  var cards = document.querySelectorAll('#projects-grid .proj-card');
+  var loadWrap = document.getElementById('load-more-wrap');
+  if (featured) featured.style.display = (cat === 'all' || featured.dataset.cat === cat) ? '' : 'none';
+  if (cat === 'all') {
+    var shown = 0;
+    cards.forEach(function(c) {
+      if (shown < 6) { c.style.display = ''; c.removeAttribute('data-loadmore'); c.classList.remove('visible'); setTimeout(function(){ c.classList.add('visible'); }, 50); shown++; }
+      else { c.style.display = 'none'; c.dataset.loadmore = 'true'; }
+    });
+    if (loadWrap) loadWrap.style.display = '';
+  } else {
+    cards.forEach(function(c) {
+      var match = c.dataset.cat === cat;
+      if (match) { c.style.display = ''; c.classList.remove('visible'); setTimeout(function(){ c.classList.add('visible'); }, 50); }
+      else { c.style.display = 'none'; }
+    });
+    if (loadWrap) loadWrap.style.display = 'none';
+  }
+}
+
+function loadMoreProjects() {
+  document.querySelectorAll('#projects-grid .proj-card[data-loadmore="true"]').forEach(function(c) {
+    c.style.display = ''; c.removeAttribute('data-loadmore');
+    c.classList.remove('visible'); setTimeout(function(){ c.classList.add('visible'); }, 50);
   });
+  document.getElementById('load-more-wrap').style.display = 'none';
 }
 </script>
 </body>

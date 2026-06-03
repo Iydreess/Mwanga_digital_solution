@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Block admin or private paths if added in future
+Disallow: /admin/
+Disallow: /private/
+
+# Crawl-delay for polite bots
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://mwangadigital.com/sitemap.xml
