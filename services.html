@@ -335,6 +335,15 @@
 @media(max-width:640px){
   .wu-grid{grid-template-columns:1fr}
   .lt-headline{font-size:clamp(3.5rem,12vw,6rem)}
+  .lt-form-card{padding:32px 24px}
+  .lt-sub{max-width:100%}
+}
+@media(max-width:480px){
+  .lt-headline{font-size:clamp(2.6rem,13vw,4rem)}
+  .lt-form-card{padding:24px 18px}
+  #svc-modal-overlay{padding:12px}
+  .sg-card{padding:28px 24px}
+  .wu-item{padding:28px 20px}
 }
 
 /* ========================================
@@ -496,23 +505,60 @@
 
 <!-- MOBILE MENU -->
 <div id="mobile-menu">
-  <button class="mob-close" onclick="closeMobileMenu()">✕</button>
-  <a href="index.html" class="mob-link" onclick="closeMobileMenu()">Home</a>
-  <a href="about.html" class="mob-link" onclick="closeMobileMenu()">About</a>
-  <a href="services.html" class="mob-link">Services</a>
-  <div class="mob-dropdown">
-    <a href="services.html#web-design" onclick="closeMobileMenu()">Web Design & Development</a>
-    <a href="services.html#mobile-apps" onclick="closeMobileMenu()">Mobile App Development</a>
-    <a href="services.html#systems" onclick="closeMobileMenu()">System Development</a>
-    <a href="services.html#seo" onclick="closeMobileMenu()">SEO Optimization</a>
-    <a href="services.html#redesign" onclick="closeMobileMenu()">Website Redesign</a>
-    <a href="services.html#maintenance" onclick="closeMobileMenu()">Maintenance & Support</a>
-    <a href="services.html#graphics" onclick="closeMobileMenu()">Graphics Design</a>
+  <div class="mm-top">
+    <a href="index.html" class="mm-logo" onclick="closeMobileMenu()">
+      <img src="assets/images/mwanga-logo.png" alt="Mwanga Digital Solutions Logo"/>
+      <div class="mm-logo-text">Mwanga Digital<span>Solutions</span></div>
+    </a>
+    <button class="mm-close" onclick="closeMobileMenu()" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
   </div>
-  <a href="projects.html" class="mob-link" onclick="closeMobileMenu()">Projects</a>
-  <a href="blog.html" class="mob-link" onclick="closeMobileMenu()">Blog</a>
-  <a href="contact.html" class="mob-link" onclick="closeMobileMenu()">Contact</a>
-  <a href="contact.html" class="btn-primary" onclick="closeMobileMenu()">Let's Talk →</a>
+  <div class="mm-sep"></div>
+  <nav class="mm-nav">
+    <a href="index.html" class="mm-link" onclick="closeMobileMenu()">
+      <span class="mm-num">01</span><span class="mm-label">Home</span>
+      <span class="mm-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+    </a>
+    <a href="about.html" class="mm-link" onclick="closeMobileMenu()">
+      <span class="mm-num">02</span><span class="mm-label">About</span>
+      <span class="mm-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+    </a>
+    <div class="mm-link mm-svc-wrap open">
+      <div class="mm-svc-head" onclick="toggleServicesMenu()">
+        <span class="mm-num">03</span><span class="mm-label">Services</span>
+        <span class="mm-arr mm-svc-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </div>
+      <div class="mm-sub">
+        <a href="services.html#web-design" class="mm-sub-link" onclick="closeMobileMenu()"><span class="mm-sub-dot"></span>Web Design & Development</a>
+        <a href="services.html#mobile-apps" class="mm-sub-link" onclick="closeMobileMenu()"><span class="mm-sub-dot"></span>Mobile App Development</a>
+        <a href="services.html#systems" class="mm-sub-link" onclick="closeMobileMenu()"><span class="mm-sub-dot"></span>System Development</a>
+        <a href="services.html#seo" class="mm-sub-link" onclick="closeMobileMenu()"><span class="mm-sub-dot"></span>SEO Optimization</a>
+        <a href="services.html#redesign" class="mm-sub-link" onclick="closeMobileMenu()"><span class="mm-sub-dot"></span>Website Redesign</a>
+        <a href="services.html#maintenance" class="mm-sub-link" onclick="closeMobileMenu()"><span class="mm-sub-dot"></span>Maintenance & Support</a>
+        <a href="services.html#graphics" class="mm-sub-link" onclick="closeMobileMenu()"><span class="mm-sub-dot"></span>Graphics Design</a>
+      </div>
+    </div>
+    <a href="projects.html" class="mm-link" onclick="closeMobileMenu()">
+      <span class="mm-num">04</span><span class="mm-label">Projects</span>
+      <span class="mm-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+    </a>
+    <a href="blog.html" class="mm-link" onclick="closeMobileMenu()">
+      <span class="mm-num">05</span><span class="mm-label">Blog</span>
+      <span class="mm-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+    </a>
+    <a href="contact.html" class="mm-link" onclick="closeMobileMenu()">
+      <span class="mm-num">06</span><span class="mm-label">Contact</span>
+      <span class="mm-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+    </a>
+  </nav>
+  <div class="mm-foot">
+    <a href="contact.html" class="mm-cta" onclick="closeMobileMenu()">Let's Talk →</a>
+    <div class="mm-contacts">
+      <a href="tel:+254724464248" class="mm-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.09 10a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 2.98 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7 8a16 16 0 0 0 9 9l1.36-1.22a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+254 724 464248</span></a>
+      <a href="mailto:info@mwangadigital.com" class="mm-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>info@mwangadigital.com</span></a>
+    </div>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════════

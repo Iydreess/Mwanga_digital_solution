@@ -47,14 +47,24 @@ if(navbar){
 /* ===== MOBILE MENU ===== */
 function toggleMobileMenu(){
   const menu = document.getElementById('mobile-menu');
+  const hamburger = document.querySelector('.nav-hamburger');
   if(!menu) return;
-  const open = menu.style.display === 'flex';
-  menu.style.display = open ? 'none' : 'flex';
+  if(menu.classList.contains('open')){ closeMobileMenu(); return; }
+  menu.classList.add('open');
+  hamburger?.classList.add('open');
+  document.body.style.overflow='hidden';
 }
 function closeMobileMenu(){
   const menu = document.getElementById('mobile-menu');
-  if(menu) menu.style.display = 'none';
+  const hamburger = document.querySelector('.nav-hamburger');
+  if(menu) menu.classList.remove('open');
+  hamburger?.classList.remove('open');
+  document.body.style.overflow='';
 }
+function toggleServicesMenu(){
+  document.querySelector('.mm-svc-wrap')?.classList.toggle('open');
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMobileMenu(); });
 
 /* ===== DROPDOWN — close on outside click (touch devices) ===== */
 document.addEventListener('click', e => {
