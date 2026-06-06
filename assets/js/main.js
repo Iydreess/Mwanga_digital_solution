@@ -47,22 +47,27 @@ if(navbar){
 /* ===== MOBILE MENU ===== */
 function toggleMobileMenu(){
   const menu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('mob-overlay');
   const hamburger = document.querySelector('.nav-hamburger');
   if(!menu) return;
   if(menu.classList.contains('open')){ closeMobileMenu(); return; }
+  if(overlay){ overlay.style.display='block'; requestAnimationFrame(()=>overlay.classList.add('open')); }
   menu.classList.add('open');
   hamburger?.classList.add('open');
   document.body.style.overflow='hidden';
 }
 function closeMobileMenu(){
   const menu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('mob-overlay');
   const hamburger = document.querySelector('.nav-hamburger');
   if(menu) menu.classList.remove('open');
   hamburger?.classList.remove('open');
   document.body.style.overflow='';
+  if(overlay){ overlay.classList.remove('open'); setTimeout(()=>{ overlay.style.display='none'; },350); }
 }
 function toggleServicesMenu(){
-  document.querySelector('.mm-svc-wrap')?.classList.toggle('open');
+  document.querySelector('.mob-svc-toggle')?.classList.toggle('svc-open');
+  document.querySelector('.mob-svc-panel')?.classList.toggle('open');
 }
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMobileMenu(); });
 
