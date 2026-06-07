@@ -780,7 +780,12 @@
     <h2 class="nl-h2">Stay in the <span>Loop</span></h2>
     <p class="nl-sub">Get the latest digital tips, project spotlights, and industry insights delivered straight to your inbox — no spam, just value.</p>
     <form class="nl-form" onsubmit="handleNewsletter(event)">
-      <input type="email" class="nl-input" placeholder="your@email.com" required/>
+      <input type="hidden" name="access_key" value="a3baa28b-b76c-4d82-8162-0aadc7732af2"/>
+      <input type="hidden" name="subject" value="New Newsletter Subscriber — Mwanga Digital Blog"/>
+      <input type="hidden" name="from_name" value="Mwanga Digital Blog"/>
+      <input type="hidden" name="redirect" value="false"/>
+      <input type="checkbox" name="botcheck" style="display:none"/>
+      <input type="email" name="email" class="nl-input" placeholder="your@email.com" required/>
       <button type="submit" class="nl-btn" id="nl-btn">Subscribe →</button>
     </form>
     <p class="nl-note">Join 500+ Kenyan business owners. Unsubscribe anytime.</p>
@@ -859,21 +864,48 @@ function filterBlog(cat, btn){
   });
 }
 
-function handleNewsletter(e){
+async function handleNewsletter(e){
   e.preventDefault();
-  const btn = document.getElementById('nl-btn');
+  const btn  = document.getElementById('nl-btn');
+  const form = e.target;
+  const data = new FormData(form);
+
   btn.textContent = 'Subscribing…';
   btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = '✓ Subscribed!';
-    btn.style.background = '#22c55e';
+
+  try {
+    const res  = await fetch('https://api.web3forms.com/submit', { method:'POST', body:data });
+    const json = await res.json();
+
+    if(json.success){
+      btn.textContent      = '✓ Subscribed!';
+      btn.style.background = '#22c55e';
+      btn.style.color      = '#fff';
+      form.reset();
+      setTimeout(() => {
+        btn.textContent      = 'Subscribe →';
+        btn.style.background = '';
+        btn.style.color      = '';
+        btn.disabled         = false;
+      }, 4000);
+    } else {
+      btn.textContent      = 'Failed — try again';
+      btn.style.background = '#ef4444';
+      setTimeout(() => {
+        btn.textContent      = 'Subscribe →';
+        btn.style.background = '';
+        btn.disabled         = false;
+      }, 3000);
+    }
+  } catch(err){
+    btn.textContent      = 'Error — try again';
+    btn.style.background = '#ef4444';
     setTimeout(() => {
-      btn.textContent = 'Subscribe →';
+      btn.textContent      = 'Subscribe →';
       btn.style.background = '';
-      btn.disabled = false;
-      e.target.reset();
-    }, 3500);
-  }, 1400);
+      btn.disabled         = false;
+    }, 3000);
+  }
 }
 </script>
 </body>
