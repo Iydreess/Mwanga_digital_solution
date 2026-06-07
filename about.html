@@ -403,10 +403,6 @@
   display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
   margin-top:56px;
 }
-/* Center last-row cards when count isn't divisible by 3 */
-.squad-grid>.squad-card:last-child:nth-child(3n+2){
-  grid-column-end:-2;
-}
 .squad-avatar-placeholder{
   width:96px;height:96px;border-radius:50%;
   background:linear-gradient(135deg,var(--gold),var(--gold2));
@@ -688,6 +684,8 @@
   .p-num{width:60px;height:60px}
   .p-num span{font-size:1.1rem}
   .p-card{padding:24px}
+  .squad-grid{gap:16px}
+  .squad-card{max-width:100%}
 }
 @media(max-width:480px){
   .process-list{gap:12px}
@@ -699,7 +697,14 @@
   .f-stat{padding:12px 8px}
   .f-stat-num{font-size:1.4rem}
   .f-stat-lbl{font-size:0.65rem}
-  .squad-card{max-width:340px;margin:0 auto}
+  .squad-card{max-width:380px;margin:0 auto}
+  .squad-avatar-placeholder{width:80px;height:80px;font-size:1.6rem}
+  .squad-grid{gap:20px}
+  .founder-stats{grid-template-columns:repeat(3,1fr)}
+  .founder-bio-h2{font-size:1.5rem}
+  .squad-body{padding:20px}
+  .lt-headline{font-size:clamp(2.8rem,10vw,4rem)}
+  .lt-sub{font-size:0.9rem}
 }
 </style>
 </head>
